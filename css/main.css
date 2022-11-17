@@ -1,0 +1,38 @@
+@import url('./loading.css');
+@import url('./video.css');
+@import url('./start.css');
+@import url('./story.css');
+@import url('./continue.css');
+
+@keyframes fadIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+:root {
+	--transition-time: 1s;
+	--background-color: #111111;
+}
+
+#app {
+	background-color: var(--background-color);
+	height: 100%;
+	--overflow: hidden;
+	transform: translateZ(1px);
+}
+#app .main {
+	--transition: transform 0.1s;
+}
+
+.container {
+	width: 100%;
+	background-color: var(--background-color);
+}
+
+#content4.container {
+	background-color: #808080;
+}

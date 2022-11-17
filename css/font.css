@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700&display=swap');
+
+@font-face {
+	font-family: "Baikal";
+	src: url("../fonts/Baikal-Thin.otf");
+	font-style: normal;
+	font-weight: 100;
+}
+@font-face {
+	font-family: "Baikal";
+	src: url("../fonts/Baikal-ExtraLight.otf");
+	font-style: normal;
+	font-weight: 200;
+}
+@font-face {
+	font-family: "Baikal";
+	src: url("../fonts/Baikal-Regular.otf");
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Baikal";
+	src: url("../fonts/Baikal-Medium.otf");
+	font-style: normal;
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Baikal";
+	src: url("../fonts/Baikal-CondensedExtraBold.otf");
+	font-style: normal;
+	font-weight: 800;
+}
+@font-face {
+	font-family: "Baikal";
+	src: url("../fonts/Baikal-Black.otf");
+	font-style: normal;
+	font-weight: 900;
+}

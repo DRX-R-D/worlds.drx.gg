@@ -1,0 +1,28 @@
+.flex {
+	display: flex;
+}
+
+.ft-ba {
+	font-family: "Baikal", sans-serif;
+}
+.ft-ns {
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+.ai-center {
+	align-items: center;
+}
+.jc-center {
+	justify-content: center;
+}
+
+.relative {
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
+
+.view-height {
+	height: 100vh;
+}
