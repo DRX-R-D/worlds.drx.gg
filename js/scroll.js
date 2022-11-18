@@ -5,7 +5,7 @@ const SIZE_VALUE = {
   YEAR_SCALE_RATE: 2,
   VIDEO_RATE: 9,
   STORY_RATE: 2,
-  CONTINUE_RATE: 5,
+  CONTINUE_RATE: 6,
 }
 const DEFAULT_VALUE = {
   YEAR_LEFT_POSITION: 0,
@@ -258,13 +258,13 @@ class Scroll {
     if (this.scTop > $continue.offsetTop) {
       const targetNumber = 1 + Number(((this.scTop - $continue.offsetTop) / blockHeight).toFixed(0))
 
-      if (targetNumber < SIZE_VALUE.CONTINUE_RATE) {
+      if (targetNumber < 5) {
         $continue.querySelectorAll(`.typo`).forEach((dom) => {
           dom.classList.remove('on')
         })
         $continue.querySelector(`.typo.item${targetNumber}`).classList.add('on')
         $continue.querySelector(`.typo.logo-wrap`).classList.remove('change')
-      } else {
+      } else if (targetNumber >= SIZE_VALUE.CONTINUE_RATE){
         $continue.querySelector(`.typo.logo-wrap`).classList.add('change')
       }
     } else {
