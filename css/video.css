@@ -1,18 +1,15 @@
-#video {
-	--height: 700vh;
-}
 #video .sticky {
 	position: sticky;
 	left: 0;
 	top: 0;
 }
 #video .bg {
+	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
 }
 #video .bg video {
 	display: block;
-	width: 100%;
 }
 #video .slogan {
 	left: 0;
@@ -26,8 +23,10 @@
 	color: #fff;
 }
 #video .slogan h1:nth-of-type(1) {
-	font-size: 300px;
-	line-height: 384px;
+	/*font-size: 300px;*/
+	/*line-height: 384px;*/
+	font-size: 18.75rem;
+	line-height: 24.06rem;
 	font-weight: 500;
 }
 #video .slogan h1:nth-of-type(2),
@@ -36,16 +35,18 @@
 	opacity: 0;
 }
 #video .slogan h1:nth-of-type(2) {
-	font-size: 110px;
-	line-height: 141px;
+	/*font-size: 110px;*/
+	/*line-height: 141px;*/
+	font-size: 6.87rem;
+	line-height: 8.81rem;
 	font-weight: 200;
 	transform: matrix(1, 0, 0, 1, 169, -13);
 	transition-property: opacity, transform;
 	transition: all var(--transition-time);
 }
 #video .slogan h1:nth-of-type(3) {
-	font-size: 160px;
-	line-height: 205px;
+	font-size: 10rem;
+	line-height: 12.81rem;
 	font-weight: 800;
 	transform: matrix(1, 0, 0, 1, -396.5, 14);
 	transition: all var(--transition-time);
@@ -55,10 +56,10 @@
 	content: "";
 	position: absolute;
 	height: 1px;
-	width: 767px;
+	width: 47.93rem;
 	background-color: #ffffff50;
 	top: 50%;
-	left: calc(100% + 50px);
+	left: calc(100% + 3.12rem);
 	transform: translateY(-50%);
 }
 #video .slogan h1:nth-of-type(4) {
@@ -102,10 +103,21 @@
 }
 
 #video .slogan.ready.on h1:nth-of-type(4).fix {
-	transition-property: none;
+	transition-property: font-size;
 	transition-delay: 0s;
-	transition-duration: 0s;
+	transition-duration: 0.3s;
 }
 #video .slogan.ready.on h1:nth-of-type(4).position {
-	--transition-delay: 0s;
+	font-size: 117px;
+}
+
+@media screen and (min-width: 1680px) {
+	#video .bg video {
+		width: 100vw;
+	}
+}
+@media screen and (max-width: 1680px) {
+	#video .bg video {
+		height: 100vh;
+	}
 }

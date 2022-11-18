@@ -9,6 +9,7 @@ html, body {
 	height: 100%;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+	font-size: calc(16 / 1920 * 100vw);
 }
 body.hidden {
 	overflow: hidden;

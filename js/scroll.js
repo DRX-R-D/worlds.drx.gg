@@ -5,7 +5,7 @@ const SIZE_VALUE = {
   YEAR_SCALE_RATE: 2,
   VIDEO_RATE: 9,
   STORY_RATE: 2,
-  CONTINUE_RATE: 3,
+  CONTINUE_RATE: 5,
 }
 const DEFAULT_VALUE = {
   YEAR_LEFT_POSITION: 0,
@@ -62,6 +62,7 @@ class Scroll {
     this.target = target
     this.scrollTop = 0
     this.scrollingDown = false
+    this.loading = 0
   }
 
   set scTop(value) {
@@ -87,19 +88,48 @@ class Scroll {
 
   _init() {
     const $story = $('#story')
+    const $continue = $('#continue')
+    const $video = $('#video')
     const $list = $('#story .list')
+    // const $scrollBar = $('#scroll-bar .gage')
 
-    document.querySelector('#video').style.height = `${SIZE_VALUE.VIDEO_RATE * 100}vh`
-    $story.style.height = `${$list.offsetWidth - window.innerHeight}px`
+    document.querySelector('#loading').querySelector('h1').innerText = '0%'
 
-    this.loadingCount(() => {
-      document.body.classList.remove('hidden')
+    $video.style.height = `${SIZE_VALUE.VIDEO_RATE * 100}vh`
+    $continue.style.height = `${SIZE_VALUE.CONTINUE_RATE * 100}vh`
 
-      setTimeout(() => {
-        window.scrollTo({ top: 0 })
-        document.querySelector('#loading').classList.add('on')
-      }, 500)
+    let videoCount = 0
+
+    document.querySelectorAll('video').forEach((dom) => {
+      dom.addEventListener('canplay', () => {
+        videoCount += 1
+
+        this.loadingCount(() => {
+          document.body.classList.remove('hidden')
+
+          setTimeout(() => {
+            window.scrollTo({ top: 0 })
+
+            $story.style.height = `${$list.offsetWidth}px`
+
+            document.querySelector('#loading').classList.add('on')
+          }, 500)
+        }, videoCount * (100 / document.querySelectorAll('video').length))
+      })
     })
+
+    // this.loadingCount(() => {
+    //   document.body.classList.remove('hidden')
+    //
+    //   setTimeout(() => {
+    //     window.scrollTo({ top: 0 })
+    //     console.log(window.scrollY)
+    //
+    //     $story.style.height = `${$list.offsetWidth}px`
+    //
+    //     document.querySelector('#loading').classList.add('on')
+    //   }, 500)
+    // })
 
     window.addEventListener('scroll', () => {
       clearTimeout(isScrolling)
@@ -107,7 +137,6 @@ class Scroll {
       this.scTop = window.scrollY
 
       isScrolling = setTimeout(function() {
-
         // console.log( 'Scrolling has stopped.' )
 
       }, 66);
@@ -158,21 +187,21 @@ class Scroll {
       $start.querySelector('.sticky').classList.remove('on')
     }
 
-    if (this.scTop >= $start.offsetTop) {
-
-    }
-
     const $season = $start.querySelector('.season')
 
     if ($text.offsetTop / 2 <= setZero + 161) { // 텍스트 배경에 고정
       if (this.scTop >= $start.querySelector('.sticky').offsetTop) { // 텍스트 변경될 위치에 도달
+        $text.classList.add('position')
+
         if (this.scTop >= ($season.offsetTop - window.innerHeight)) { // 텍스트 변경된 위치에 고정
-          $text.style.transform = `matrix(1, 0, 0, 1, 472, ${(window.innerHeight * 2.5) - 161 - 21 - 11}) scale(0.584)`
+          $text.style.transform = `matrix(1, 0, 0, 1, 230, 2113)`
         } else { // 텍스트 변경된 위치에 맞춰서 이동
-          $text.style.transform = `matrix(1, 0, 0, 1, 472, ${161 + setZero - ($text.offsetTop / 2)}) scale(0.584)`
+          $text.style.transform = `matrix(1, 0, 0, 1, 230, ${161 + setZero - ($text.offsetTop / 2)})`
         }
+        // matrix(1, 0, 0, 1, 230, 2113)
       } else { // 텍스트 배경따라 이동
         $text.classList.add('fix')
+        $text.classList.remove('position')
 
         if (this.scTop >= $start.offsetTop) {
           $text.style.transform = `matrix(1, 0, 0, 1, 169, ${(setZero - ($text.offsetTop / 2)) - 21 + 161})`
@@ -183,6 +212,7 @@ class Scroll {
     } else { // 텍스트 원래 위치 도달
       if (this.scTop <= ($start.offsetTop - window.innerHeight)) {
         $text.classList.remove('fix')
+        $text.classList.remove('position')
       }
 
       $text.style.transform = ``
@@ -228,32 +258,42 @@ class Scroll {
     if (this.scTop > $continue.offsetTop) {
       const targetNumber = 1 + Number(((this.scTop - $continue.offsetTop) / blockHeight).toFixed(0))
 
-      $continue.querySelectorAll(`.typo`).forEach((dom) => {
-        dom.classList.remove('on')
-      })
-      $continue.querySelector(`.typo.item${targetNumber}`).classList.add('on')
+      if (targetNumber < SIZE_VALUE.CONTINUE_RATE) {
+        $continue.querySelectorAll(`.typo`).forEach((dom) => {
+          dom.classList.remove('on')
+        })
+        $continue.querySelector(`.typo.item${targetNumber}`).classList.add('on')
+        $continue.querySelector(`.typo.logo-wrap`).classList.remove('change')
+      } else {
+        $continue.querySelector(`.typo.logo-wrap`).classList.add('change')
+      }
     } else {
+      $continue.querySelector(`.typo.logo-wrap`).classList.remove('change')
       $continue.querySelectorAll(`.typo`).forEach((dom) => {
         dom.classList.remove('on')
       })
     }
   }
-  loadingCount(fn) {
+  loadingCount(fn, cur) {
     const $loading = document.querySelector('#loading')
-    const counting = (count) => {
-      if (count <= 100) {
-        $loading.querySelector('h1').innerText = `${count}%`
+    const counting = () => {
+      if (this.loading <= cur) {
+        $loading.querySelector('h1').innerText = `${this.loading}%`
 
         return setTimeout(() => {
-          return counting(count + 1)
+          this.loading += 1
+
+          return counting()
         }, 10)
-      } else {
+      } else if (this.loading >= 100) {
+        $loading.querySelector('h1').innerText = `${100}%`
+
         fn()
       }
     }
 
     if (!$loading.classList.contains('on')) {
-      counting(0)
+      counting()
     }
   }
 }
@@ -261,6 +301,19 @@ class Scroll {
 const scroll = new Scroll($main)
 
 scroll._init()
+
+let resizeTimeOut = null
+
+window.addEventListener('resize' , function () {
+  if (resizeTimeOut !== null) clearTimeout(resizeTimeOut)
+
+  document.querySelector('#loading').classList.remove('on')
+
+  resizeTimeOut = setTimeout(() => {
+    window.scrollTo({ top: 0 })
+    scroll._init()
+  }, 500)
+})
 
 const io = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
@@ -273,97 +326,18 @@ const io = new IntersectionObserver(function (entries) {
 }, {
   threshold: 0.8,
 })
+const videoIo = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.play()
+    }
+  })
+}, {
+  threshold: 0.5,
+})
 
 io.observe($('#start .slogan'))
 
-//
-// let mainScrollTop = 0
-// let mainScrollCount = 0
-//
-// const $main = $('#app .main')
-// const $videoSlogan = $('#video .slogan .year')
-//
-// function translate(list) {
-//   const value = list
-//     .map(function (value) {
-//       return `${value}px`
-//     })
-//     .join(', ')
-//
-//   return `translate3d(${value}, 0)`
-// }
-//
-// function valueChange(fn, prev, cur) {
-//   if (prev !== cur) {
-//     if (prev < 0) {
-//       const changeValue = prev - 1
-//
-//       fn(changeValue)
-//
-//       return setTimeout(() => {
-//         valueChange(fn, changeValue, cur)
-//       }, 1)
-//     } else {
-//       const changeValue = prev + 1
-//
-//       fn(changeValue)
-//
-//       return setTimeout(() => {
-//         valueChange(fn, prev + 1, cur)
-//       }, 1)
-//     }
-//   }
-//
-//
-//   // $videoSlogan
-//   //   .style.transform = `${translate([mainScrollTop / 10, 270 + (mainScrollTop / 10)])} scale(2.5)`
-// }
-//
-// function moveScroll(amount){
-//   mainScrollTop -= amount
-//
-//   if(mainScrollTop < ($main.offsetHeight - (window.innerWidth/2)) * -1){
-//     mainScrollTop = ($main.offsetHeight - (window.innerWidth/2)) * -1
-//   } else if(mainScrollTop > 0) {
-//     mainScrollTop = 0
-//   }
-//
-//   $main.style.transform = `translateY(${mainScrollTop}px)`
-// }
-//
-// function videoAnimation() {
-//
-// }
-//
-// $main.addEventListener('wheel', function (event) {
-//   event.preventDefault()
-//
-//   mainScrollTop -= event.deltaY.toFixed(0)
-//
-//   if (event.deltaY < 0 && mainScrollTop >= 0) {
-//     return setTimeout(()=>{
-//       mainScrollTop = 0
-//     },500)
-//   }
-//
-//   videoAnimation()
-//
-//   // valueChange(function (value) {
-//   //   $videoSlogan
-//   //     .style.transform = `${translate([value, 270])} scale(2.5)`
-//   // }, 100 * mainScrollCount, 100 * (mainScrollCount + 1))
-//
-//   // moveScroll(event.deltaY < 0 ? -50 : 50)
-// })
-//
-// const io = new IntersectionObserver(function (entries) {
-//   entries.forEach(function (entry) {
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add('view')
-//     }
-//   })
-// }, {
-//   threshold: 1,
-// })
-//
-// io.observe($('#content2.container .slogan'))
+document.querySelectorAll('video').forEach((dom) => {
+  videoIo.observe(dom)
+})
