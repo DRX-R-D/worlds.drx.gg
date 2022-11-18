@@ -100,8 +100,10 @@ class Scroll {
 
     let videoCount = 0
 
-    document.querySelectorAll('video').forEach((dom) => {
-      dom.addEventListener('canplay', () => {
+    // TODO: Loading 카운트 옵저버로 작업
+    document.querySelectorAll('img').forEach((dom) => {
+      dom.addEventListener('load', () => {
+        console.log(videoCount, (100 / document.querySelectorAll('img').length))
         videoCount += 1
 
         this.loadingCount(() => {
@@ -109,26 +111,33 @@ class Scroll {
 
           setTimeout(() => {
             window.scrollTo({ top: 0 })
-
             $story.style.height = `${$list.offsetWidth}px`
 
             document.querySelector('#loading').classList.add('on')
           }, 500)
-        }, videoCount * (100 / document.querySelectorAll('video').length))
+        }, videoCount * (100 / document.querySelectorAll('img').length))
       })
     })
 
-    // this.loadingCount(() => {
-    //   document.body.classList.remove('hidden')
-    //
-    //   setTimeout(() => {
-    //     window.scrollTo({ top: 0 })
-    //     console.log(window.scrollY)
-    //
-    //     $story.style.height = `${$list.offsetWidth}px`
-    //
-    //     document.querySelector('#loading').classList.add('on')
-    //   }, 500)
+    // document.querySelectorAll('video').forEach((dom) => {
+
+      // dom.addEventListener('load', () => {
+      // })
+      // dom.addEventListener('canplay', () => {
+      //   videoCount += 1
+      //
+      //   console.log(videoCount)
+      //
+      //   this.loadingCount(() => {
+      //     document.body.classList.remove('hidden')
+      //
+      //     setTimeout(() => {
+      //       $story.style.height = `${$list.offsetWidth}px`
+      //
+      //       document.querySelector('#loading').classList.add('on')
+      //     }, 500)
+      //   }, videoCount * (100 / document.querySelectorAll('video').length))
+      // })
     // })
 
     window.addEventListener('scroll', () => {
