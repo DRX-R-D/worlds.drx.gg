@@ -1,5 +1,8 @@
 'use strict';
 
+// TODO: 1920을 기본 비율로 잡아 뒀음
+// 가로가 긴 경우, 세로가 긴 경우 추가로 CHAMPION 문구 애니메이션 확인
+
 const SIZE_VALUE = {
   YEAR_RATE: 3,
   YEAR_SCALE_RATE: 2,
@@ -101,23 +104,24 @@ class Scroll {
     let videoCount = 0
 
     // TODO: Loading 카운트 옵저버로 작업
-    document.querySelectorAll('img').forEach((dom) => {
-      dom.addEventListener('load', () => {
-        console.log(videoCount, (100 / document.querySelectorAll('img').length))
-        videoCount += 1
+    // document.querySelectorAll('img').forEach((dom) => {
+    //   dom.addEventListener('load', () => {
+    //     console.log(videoCount, (100 / document.querySelectorAll('img').length))
+    //     videoCount += 1
+    //
+    //
+    //   })
+    // })
+    this.loadingCount(() => {
+      document.body.classList.remove('hidden')
 
-        this.loadingCount(() => {
-          document.body.classList.remove('hidden')
+      setTimeout(() => {
+        window.scrollTo({ top: 0 })
+        $story.style.height = `${$list.offsetWidth}px`
 
-          setTimeout(() => {
-            window.scrollTo({ top: 0 })
-            $story.style.height = `${$list.offsetWidth}px`
-
-            document.querySelector('#loading').classList.add('on')
-          }, 500)
-        }, videoCount * (100 / document.querySelectorAll('img').length))
-      })
-    })
+        document.querySelector('#loading').classList.add('on')
+      }, 500)
+    }, 100)
 
     // document.querySelectorAll('video').forEach((dom) => {
 
