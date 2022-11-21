@@ -95,7 +95,7 @@
 	transform: matrix(1, 0, 0, 1, 554, -187);
 	gap: 33px;
 	color: #fff;
-	opacity: 0.5;
+	opacity: 0;
 }
 #home .page-map li a {
 	gap: 9px;
@@ -105,4 +105,7 @@
 }
 #home .page-map li a img {
 	width: 14px;
+}
+#home .content.on .page-map {
+	opacity: 0.5;
 }

@@ -125,7 +125,11 @@ class Scroll {
         videoCount += 1
 
         this.loadingCount(() => {
-          document.body.classList.remove('hidden')
+          if (window.innerWidth > window.innerHeight) {
+            document.body.classList.remove('hidden')
+          } else {
+            return
+          }
 
           setTimeout(() => {
             $story.style.height = `${$list.offsetWidth + (window.innerHeight * 3)}px`
@@ -261,8 +265,16 @@ scroll._init()
 
 let resizeTimeOut = null
 
-window.addEventListener('resize' , function () {
+window.addEventListener('resize' , function (event) {
   if (resizeTimeOut !== null) clearTimeout(resizeTimeOut)
+
+  if (window.innerWidth <= window.innerHeight) {
+    document.body.classList.add('hidden')
+  } else {
+    document.body.classList.remove('hidden')
+  }
+
+  console.log(event)
 
   // document.querySelector('#loading').classList.remove('on')
   //
