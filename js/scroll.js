@@ -293,7 +293,7 @@ const startIO = new IntersectionObserver(function (entries) {
     }
   })
 }, {
-  threshold: 0.8,
+  threshold: 0.3,
 })
 const videoIO = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {

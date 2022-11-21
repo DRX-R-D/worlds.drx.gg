@@ -184,6 +184,15 @@
 	left: 50%;
 	top: 50%;
 }
+#tryout .main .typo span {
+	color: #FFFFFF26;
+	font-size: 18px;
+	line-height: 23px;
+	left: 50%;
+	top: 50%;
+	font-weight: 400;
+	transform: matrix(1, 0, 0, 1, -48, -293);
+}
 #play-in .main {
 	background-color: #2763D7;
 }
@@ -311,7 +320,7 @@
 	transform: matrix(1, 0, 0, 1, -810, 244);
 }
 #semifinals .main {
-	background-color: #FEECAA;
+	background-color: #1B2F22;
 }
 #semifinals .main .typo h1 {
 	color: #FFCBCB;
