@@ -4,9 +4,9 @@
 // 가로가 긴 경우, 세로가 긴 경우 추가로 CHAMPION 문구 애니메이션 확인
 
 const SIZE_VALUE = {
+  HOME_RATE: 3,
   YEAR_RATE: 3,
   YEAR_SCALE_RATE: 2,
-  VIDEO_RATE: 9,
   STORY_RATE: 2,
   CONTINUE_RATE: 6,
 }
@@ -36,7 +36,15 @@ function debounce(fn, timer) {
 }
 
 function $(query) {
-  return document.querySelector(query)
+  const selectAll = document.querySelectorAll(query)
+
+  if (selectAll.length === 1) {
+    return selectAll[0]
+  } else if (selectAll.length === 0) {
+    return document
+  } else {
+    return selectAll
+  }
 }
 function animation(prev, cur, fn) {
   if (prev > cur) {
@@ -57,8 +65,6 @@ function animation(prev, cur, fn) {
     })
   }
 }
-
-const $main = $('#app .main')
 
 class Scroll {
   constructor(target) {
@@ -92,57 +98,48 @@ class Scroll {
   _init() {
     const $story = $('#story')
     const $continue = $('#continue')
-    const $video = $('#video')
+    const $home = $('#home')
     const $list = $('#story .list')
-    // const $scrollBar = $('#scroll-bar .gage')
 
-    document.querySelector('#loading').querySelector('h1').innerText = '0%'
+    $('#loading h1').innerText = '0%'
 
-    $video.style.height = `${SIZE_VALUE.VIDEO_RATE * 100}vh`
+    $home.style.height = `${SIZE_VALUE.HOME_RATE * 100}vh`
     $continue.style.height = `${SIZE_VALUE.CONTINUE_RATE * 100}vh`
 
     let videoCount = 0
 
-    // TODO: Loading 카운트 옵저버로 작업
-    // document.querySelectorAll('img').forEach((dom) => {
-    //   dom.addEventListener('load', () => {
-    //     console.log(videoCount, (100 / document.querySelectorAll('img').length))
-    //     videoCount += 1
-    //
-    //
-    //   })
-    // })
-    this.loadingCount(() => {
-      document.body.classList.remove('hidden')
+    const $videoList = $('.video video')
 
-      setTimeout(() => {
-        window.scrollTo({ top: 0 })
-        $story.style.height = `${$list.offsetWidth}px`
+    $videoList.forEach((dom) => {
+      const src = dom.dataset.src
 
-        document.querySelector('#loading').classList.add('on')
-      }, 500)
-    }, 100)
+      Array.from(dom.children).forEach((child) => {
+        const type = child.type
 
-    // document.querySelectorAll('video').forEach((dom) => {
+        child.setAttribute('src', `${src}.${type.replace('video/', '')}`)
+      })
 
-      // dom.addEventListener('load', () => {
-      // })
-      // dom.addEventListener('canplay', () => {
-      //   videoCount += 1
-      //
-      //   console.log(videoCount)
-      //
-      //   this.loadingCount(() => {
-      //     document.body.classList.remove('hidden')
-      //
-      //     setTimeout(() => {
-      //       $story.style.height = `${$list.offsetWidth}px`
-      //
-      //       document.querySelector('#loading').classList.add('on')
-      //     }, 500)
-      //   }, videoCount * (100 / document.querySelectorAll('video').length))
-      // })
-    // })
+      dom.load()
+
+      dom.addEventListener('canplay', () => {
+        videoCount += 1
+
+        this.loadingCount(() => {
+          document.body.classList.remove('hidden')
+
+          setTimeout(() => {
+            $story.style.height = `${$list.offsetWidth + (window.innerHeight * 3)}px`
+
+            setTimeout(() => {
+              window.scrollTo({ top: 0 })
+
+              $('#loading').classList.add('on')
+            }, 100)
+          }, 500)
+        }, videoCount * (100 / $videoList.length))
+      })
+    })
+
 
     window.addEventListener('scroll', () => {
       clearTimeout(isScrolling)
@@ -151,102 +148,49 @@ class Scroll {
 
       isScrolling = setTimeout(function() {
         // console.log( 'Scrolling has stopped.' )
-
       }, 66);
     })
   }
 
   videoAnimation(left, top, scale) {
-    const $slogan = this.target.querySelector('#video .slogan')
-    const $year = this.target.querySelector('#video .year')
+    const $content = $('#home .content')
+    const $champion = $('#champion-text')
+    const $year = $('#home .year')
 
-    if (this.scTop <= (window.innerHeight * SIZE_VALUE.YEAR_SCALE_RATE)) {
-      scale = DEFAULT_VALUE.YEAR_SCALE_RATE - (this.scTop / window.innerHeight)
+    const firstStep = window.innerHeight
+    const secondStep = window.innerHeight * 2
 
-      $slogan.classList.remove('ready')
+    if (this.scTop <= firstStep) {
+      $year.classList.remove('transition')
+      $year.classList.remove('on')
+      $content.classList.remove('on')
+      $champion.classList.remove('on')
 
-      $year
-        .style
-        .transform = `matrix(1, 0, 0, 1, ${DEFAULT_VALUE.YEAR_LEFT_POSITION}, ${DEFAULT_VALUE.YEAR_TOP_POSITION}) scale(${scale})`
-    } else if (this.scTop <= window.innerHeight * (SIZE_VALUE.YEAR_RATE + SIZE_VALUE.YEAR_SCALE_RATE)) {
-      const setZero = this.scTop - window.innerHeight * SIZE_VALUE.YEAR_SCALE_RATE
-      const rateHeight = window.innerHeight * SIZE_VALUE.YEAR_RATE
+      $year.style.transform = `matrix(1, 0, 0, 1, -${$year.offsetWidth / 2}, -${$year.offsetHeight / 2}) scale(${3 - this.scTop * (2 / firstStep)})`
+    } else if (firstStep < this.scTop && this.scTop <= secondStep) {
+      $year.classList.add('transition')
+      $year.classList.add('on')
+      $content.classList.add('on')
+      $champion.classList.add('on')
 
-      left = setZero * (CHANGE_VALUE.YEAR_LEFT_POSITION / rateHeight)
-      top = DEFAULT_VALUE.YEAR_TOP_POSITION - (setZero * (DEFAULT_VALUE.YEAR_TOP_POSITION / rateHeight))
-
-      $slogan.classList.add('ready')
-      $slogan.classList.remove('on')
-
-      $year
-        .style
-        .transform = `matrix(1, 0, 0, 1, ${left}, ${top}) scale(${CHANGE_VALUE.YEAR_SCALE_RATE})`
-    } else {
-      $slogan.classList.add('on')
-
-      $year
-        .style
-        .transform = `matrix(1, 0, 0, 1, ${CHANGE_VALUE.YEAR_LEFT_POSITION}, ${CHANGE_VALUE.YEAR_TOP_POSITION}) scale(${CHANGE_VALUE.YEAR_SCALE_RATE})`
+      $year.style.transform = ``
     }
   }
   championAnimation() {
-    const $text = document.querySelector('#champion-text')
-    const $start = document.querySelector('#start')
-    const setZero = this.scTop - window.innerHeight * (SIZE_VALUE.VIDEO_RATE - 1)
+    const $text = $('#champion-text')
+    const $slogan = $('#start .slogan .sticky')
+    const firstStep = window.innerHeight * (SIZE_VALUE.HOME_RATE - 1) + 173
 
-    if (this.scTop >= $start.querySelector('.sticky').offsetTop) {
-      $start.querySelector('.sticky').classList.add('on')
+    if (firstStep <= this.scTop && this.scTop < $slogan.offsetTop) {
+      $text.classList.remove('fix')
+
+      $text.style.transform = `matrix(1, 0, 0, 1, -291, ${(this.scTop - firstStep) + 189})`
+    } else if (this.scTop >= $slogan.offsetTop) {
+      $text.classList.add('fix')
+
+      $text.style.transform = `matrix(1, 0, 0, 1, -111, ${($slogan.offsetTop - firstStep) + 189})`
     } else {
-      $start.querySelector('.sticky').classList.remove('on')
-    }
-
-    const $season = $start.querySelector('.season')
-
-    if ($text.offsetTop / 2 <= setZero + 161) { // 텍스트 배경에 고정
-      if (this.scTop >= $start.querySelector('.sticky').offsetTop) { // 텍스트 변경될 위치에 도달
-        $text.classList.add('position')
-
-        if (this.scTop >= ($season.offsetTop - window.innerHeight)) { // 텍스트 변경된 위치에 고정
-          $text.style.transform = `matrix(1, 0, 0, 1, 230, 2113)`
-        } else { // 텍스트 변경된 위치에 맞춰서 이동
-          $text.style.transform = `matrix(1, 0, 0, 1, 230, ${161 + setZero - ($text.offsetTop / 2)})`
-        }
-        // matrix(1, 0, 0, 1, 230, 2113)
-      } else { // 텍스트 배경따라 이동
-        $text.classList.add('fix')
-        $text.classList.remove('position')
-
-        if (this.scTop >= $start.offsetTop) {
-          $text.style.transform = `matrix(1, 0, 0, 1, 169, ${(setZero - ($text.offsetTop / 2)) - 21 + 161})`
-        } else {
-          $text.style.transform = `matrix(1, 0, 0, 1, 169, ${(setZero - ($text.offsetTop / 2)) - 21 + 161})`
-        }
-      }
-    } else { // 텍스트 원래 위치 도달
-      if (this.scTop <= ($start.offsetTop - window.innerHeight)) {
-        $text.classList.remove('fix')
-        $text.classList.remove('position')
-      }
-
       $text.style.transform = ``
-    }
-
-
-    if ($text.offsetTop / 2 <= setZero) {
-      // if ($start.offsetTop <= this.scTop) {
-      //   $text.classList.remove('fix')
-      //   $text.classList.add('position')
-      // } else {
-      //   $text.classList.add('fix')
-      //   $text.classList.remove('position')
-      //
-      //   $text.style.transform = `matrix(1, 0, 0, 1, 169, ${setZero - ($text.offsetTop / 2)})`
-      // }
-    } else if ($text.offsetTop / 2 > setZero) {
-      // $text.classList.remove('fix')
-      // $text.classList.remove('position')
-      //
-      // $text.style.transform = ``
     }
   }
   storyScroll() {
@@ -311,7 +255,7 @@ class Scroll {
   }
 }
 
-const scroll = new Scroll($main)
+const scroll = new Scroll($('#app .main'))
 
 scroll._init()
 
@@ -320,15 +264,15 @@ let resizeTimeOut = null
 window.addEventListener('resize' , function () {
   if (resizeTimeOut !== null) clearTimeout(resizeTimeOut)
 
-  document.querySelector('#loading').classList.remove('on')
-
-  resizeTimeOut = setTimeout(() => {
-    window.scrollTo({ top: 0 })
-    scroll._init()
-  }, 500)
+  // document.querySelector('#loading').classList.remove('on')
+  //
+  // resizeTimeOut = setTimeout(() => {
+  //   window.scrollTo({ top: 0 })
+  //   scroll._init()
+  // }, 500)
 })
 
-const io = new IntersectionObserver(function (entries) {
+const startIO = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {
       entry.target.classList.add('on')
@@ -339,18 +283,26 @@ const io = new IntersectionObserver(function (entries) {
 }, {
   threshold: 0.8,
 })
-const videoIo = new IntersectionObserver(function (entries) {
+const videoIO = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
-    if (entry.isIntersecting) {
-      entry.target.play()
-    }
+    entry.target.querySelector('video').play()
   })
 }, {
   threshold: 0.5,
 })
+const videoImageIO = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('on')
+    }
+  })
+}, {
+  threshold: 0.8,
+})
 
-io.observe($('#start .slogan'))
+startIO.observe($('#start .slogan .sticky'))
 
-document.querySelectorAll('video').forEach((dom) => {
-  videoIo.observe(dom)
+$('.video').forEach((dom) => {
+  videoIO.observe(dom)
+  videoImageIO.observe(dom)
 })

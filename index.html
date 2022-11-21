@@ -9,24 +9,46 @@
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/main.css">
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body class="hidden">
 <div id="app" class="relative">
   <div class="main">
-    <div class="container relative" id="video">
-      <div class="sticky">
-        <div class="bg flex ai-center jc-center">
-          <video muted autoplay loop>
-            <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/world-main.webm" type="video/webm" />
-            <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/world-main.mp4" type="video/mp4" />
+    <div class="container relative" id="home">
+      <div class="video sticky">
+        <div class="bg flex ai-center jc-center a-hidden fill width height">
+          <video
+            muted
+            loop
+            class="block fill width"
+            data-src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/world-main"
+          >
+            <source src="#" type="video/webm" />
+            <source src="#" type="video/mp4" />
           </video>
         </div>
-        <div class="absolute flex ai-center jc-center slogan">
-          <h1 class="ft-ba year" style="transform: matrix(1, 0, 0, 1, 0, 270) scale(3)">2022</h1>
-          <h1 class="ft-ba">LEAGUE OF LEGENDS</h1>
-          <h1 class="ft-ba relative">WORLD</h1>
-          <h1 id="champion-text" class="ft-ba relative" style="transform: matrix(1, 0, 0, 1, 0, 0)">CHAMPION</h1>
+        <div class="absolute flex ai-center jc-center content fill width height a-hidden">
+          <lottie-player src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/logo.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop controls autoplay></lottie-player>
+          <h1 class="absolute ft-ba year" style="transform: matrix(1, 0, 0, 1, -377, -192) scale(3)">2022</h1>
+          <h1 class="absolute ft-ba">LEAGUE OF LEGENDS</h1>
+          <h1 class="absolute ft-ba-ex relative">WORLD</h1>
+          <ul class="page-map flex ai-center jc-center absolute">
+            <li>
+              <a href="https://main.drx.gg" class="ft-ba flex ai-center">
+                HOME
+                <img class="block" src="./image/arrow.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#" class="ft-ba flex ai-center">
+                <img class="block" src="./image/arrow.png" alt="">
+                SHOP
+              </a>
+            </li>
+          </ul>
         </div>
+        <h1 id="champion-text" class="ft-ba absolute" style="">CHAMPIONS</h1>
       </div>
     </div>
     <div id="start">
@@ -65,7 +87,7 @@
         <div class="content item1 relative">
           <p class="absolute ft-ba">LAST DANCE</p>
           <div class="thumb">
-            <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/content3-1.png" alt="">
+            <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/season-1.png" alt="">
           </div>
         </div>
         <div class="content item2 relative">
@@ -76,7 +98,7 @@
             <h3 class="ft-ns">우승은 불가능</h3>
           </div>
           <div class="thumb">
-            <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/content3-2.png" alt="">
+            <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/season-2.png" alt="">
           </div>
         </div>
         <div class="content item3 relative">
@@ -86,29 +108,45 @@
             자신감이 재능과 만나면 실력이 크게 향상된다고 믿고 있어요.
           </p>
           <div class="thumb">
-            <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/content3-3.png" alt="">
+            <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/season-3.png" alt="">
           </div>
         </div>
+        <div class="content item4 relative flex">
+          <div class="thumb">
+            <img class="block fill width" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/season-4.png" alt="">
+          </div>
+          <div class="thumb">
+            <img class="block fill width" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/season-5.png" alt="">
+          </div>
+        </div>
+        <h2 class="bg absolute ft-ba item2">A WEAK</h2>
       </div>
     </div>
     <div class="container relative" id="story">
-      <div class="wrap">
-        <div class="list flex">
+      <div class="wrap a-hidden fill width view sticky">
+        <div class="list flex fill height view">
           <div class="video relative flex ai-center jc-center">
-            <video muted loop>
-              <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/butwemakeitblue.webm" type="video/webm" />
-              <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/butwemakeitblue.mp4" type="video/mp4" />
-            </video>
-            <div class="absolute flex ai-center jc-center slogan">
+            <div class="bg flex ai-center jc-center a-hidden fill width height">
+              <video
+                muted
+                loop
+                class="block fill width"
+                data-src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/butwemakeitblue"
+              >
+                <source src="#" type="video/webm" />
+                <source src="#" type="video/mp4" />
+              </video>
+            </div>
+            <div class="absolute flex ai-center jc-center content fill width height">
               <h1 class="ft-ba">BUT WE MAKE IT BLUE</h1>
             </div>
           </div>
-          <div class="tryout type1 flex location" id="tryout">
-            <div class="main relative">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-1.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-2.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-3.png" alt="">
-              <img class="absolute" src="./image/arrow.png" alt="">
+          <div class="flex location" id="tryout">
+            <div class="main relative fill width height view a-hidden">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-1.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-2.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-3.png" alt="">
+              <img class="absolute block" src="./image/arrow.png" alt="">
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">QUALIFIER</h1>
                 <h1 class="ft-ba">IN SEOUL</h1>
@@ -121,39 +159,43 @@
                 </div>
               </div>
             </div>
-            <div class="content item1 relative">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/content-1.png" alt="">
+            <div class="fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/content-1.png" alt="">
             </div>
-            <div class="content item2 relative match">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/content-2.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">09-02</p>
-                <h2 class="ft-ba">VS KT</h2>
-                <h1 class="ft-ba">3 : 2</h1>
-                <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=u7OPv5oHIko&list=PLIWtfvmBcNoeZ6EL81B1rvEFFKgkdzGRK&index=2" target="_blank">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
+            <div class="relative match fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/content-2.png" alt="">
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">09-02</p>
+                  <h2 class="ft-ba">VS KT</h2>
+                  <h1 class="ft-ba">3 : 2</h1>
+                  <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=u7OPv5oHIko&list=PLIWtfvmBcNoeZ6EL81B1rvEFFKgkdzGRK&index=2" target="_blank">
+                    하이라이트
+                    <img class="block" src="./image/arrow.png" alt="">
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="content item3 relative match">
+            <div class="relative match fill view height">
               <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/content-3.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">09-03</p>
-                <h2 class="ft-ba">VS LSB</h2>
-                <h1 class="ft-ba">3 : 2</h1>
-                <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=MYa9t2SLrqg&list=PLIWtfvmBcNoeZ6EL81B1rvEFFKgkdzGRK&index=1" target="_blank">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">09-03</p>
+                  <h2 class="ft-ba">VS LSB</h2>
+                  <h1 class="ft-ba">3 : 2</h1>
+                  <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=MYa9t2SLrqg&list=PLIWtfvmBcNoeZ6EL81B1rvEFFKgkdzGRK&index=1" target="_blank">
+                    하이라이트
+                    <img src="./image/arrow.png" alt="">
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="play-in type1 flex location" id="play-in">
-            <div class="main relative">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-1.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-2.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-3.png" alt="">
+          <div class="flex location" id="play-in">
+            <div class="main relative fill width height view a-hidden">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/main-1.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/main-2.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/main-3.png" alt="">
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">PLAY-INS</h1>
                 <h1 class="ft-ba">IN MEXICO</h1>
@@ -166,75 +208,85 @@
                 </div>
               </div>
             </div>
-            <div class="content item1 relative">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/content-1.png" alt="">
+            <div class="fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/content-1.png" alt="">
             </div>
-            <div class="content item2 relative match">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-1.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">09-30</p>
-                <h2 class="ft-ba">VS RNG</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=6YnS_R-6_Zs&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=38" target="_blank">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
+            <div class="relative match fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-1.png" alt="">
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">09-30</p>
+                  <h2 class="ft-ba">VS RNG</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=6YnS_R-6_Zs&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=38" target="_blank">
+                    하이라이트
+                    <img class="block" src="./image/arrow.png" alt="">
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="content item3 relative match">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-2.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-01</p>
-                <h2 class="ft-ba">VS SGB</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=4jClgjtyCl4&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=37" target="_blank">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
+            <div class="relative match fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-2.png" alt="">
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-01</p>
+                  <h2 class="ft-ba">VS SGB</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=4jClgjtyCl4&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=37" target="_blank">
+                    하이라이트
+                    <img class="block" src="./image/arrow.png" alt="">
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="content item4 relative match">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-3.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-01</p>
-                <h2 class="ft-ba">VS IW</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=7IUaCpVa5g8&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=36" target="_blank">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
+            <div class="relative match fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-3.png" alt="">
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-01</p>
+                  <h2 class="ft-ba">VS IW</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=7IUaCpVa5g8&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=36" target="_blank">
+                    하이라이트
+                    <img class="block" src="./image/arrow.png" alt="">
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="content item5 relative match">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-4.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-02</p>
-                <h2 class="ft-ba">VS ISG</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=OPCY1Jm1hFw&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=35" target="_blank">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
+            <div class="relative match fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-4.png" alt="">
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-02</p>
+                  <h2 class="ft-ba">VS ISG</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=OPCY1Jm1hFw&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=35" target="_blank">
+                    하이라이트
+                    <img class="block" src="./image/arrow.png" alt="">
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="content item6 relative match">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-5.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-03</p>
-                <h2 class="ft-ba">VS MAD</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=VODsSn6fB98&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=34" target="_blank">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
+            <div class="relative match fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/play-in/match-5.png" alt="">
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-03</p>
+                  <h2 class="ft-ba">VS MAD</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=VODsSn6fB98&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=34" target="_blank">
+                    하이라이트
+                    <img class="block" src="./image/arrow.png" alt="">
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="ground-stage type2 flex location" id="ground-stage" >
-            <div class="main relative">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-1.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-2.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-3.png" alt="">
+          <div class="flex location" id="ground-stage" >
+            <div class="main relative fill width height view a-hidden">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/main-1.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/main-2.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/main-3.png" alt="">
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">GROUP STAGE</h1>
                 <h1 class="ft-ba">IN NEWYORK</h1>
@@ -247,109 +299,122 @@
                 </div>
               </div>
             </div>
-            <div class="content item1 relative">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/content-1.png" alt="">
+            <div class="fill view height">
+              <img class="fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/content-1.png" alt="">
             </div>
-            <div class="content item2 relative match">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/match-1.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-09</p>
-                <h2 class="ft-ba">VS RGE</h2>
-                <h1 class="ft-ba">0 : 1</h1>
-                <a class="ft-ns flex ai-center" href="#">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
-              </div>
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-16</p>
-                <h2 class="ft-ba">VS RGE</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="#">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="content item3 relative match">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/match-2.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-11</p>
-                <h2 class="ft-ba">VS GAM</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="#">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
-              </div>
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-16</p>
-                <h2 class="ft-ba">VS GAM</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="#">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="content item4 relative match">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/match-3.png" alt="">
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-10</p>
-                <h2 class="ft-ba">VS TES</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="#">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
-              </div>
-              <div class="absolute flex ai-center jc-center">
-                <p class="ft-ba">10-16</p>
-                <h2 class="ft-ba">VS TES</h2>
-                <h1 class="ft-ba">1 : 0</h1>
-                <a class="ft-ns flex ai-center" href="#">
-                  하이라이트
-                  <img src="./image/arrow.png" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="content item5 relative match big relative">
-              <div class="bg">
-                <video muted loop>
-                  <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/ground-stage.webm" type="video/webm" />
-                  <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/ground-stage.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <div class="typo absolute">
-                <h1 class="absolute ft-ba">TIEBREAKER</h1>
-                <h1 class="absolute ft-ba">VS REG</h1>
-                <h1 class="absolute ft-ba">1 : 0</h1>
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-1.png" alt="">
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-2.png" alt="">
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-3.png" alt="">
-                <div class="absolute interview">
-                  <h4 class="ft-ba">DEFT</h4>
-                  <p class="ft-ns">
-                    사실 결과는 상관없고 제가 느꼈을 때 항상 <span>월즈에 올 때 마다</span> <br />
-                    <span>발전했다는 느낌을 하나도 못받았었는데,</span> <br />
-                    이번 월즈가 끝날 때 제가 생각했을 때 <br />
-                    <span>제가 발전했다고 느꼈으면 그걸로 된 것 같아요.</span>
-                  </p>
-                </div>
-                <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=5BR8o_Q5mMk&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=11" target="_blank">
-                  하이라이트
-                  <span class="flex ai-center jc-center">
+            <div class="relative match fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/match-1.png" alt="">
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-09</p>
+                  <h2 class="ft-ba">VS RGE</h2>
+                  <h1 class="ft-ba">0 : 1</h1>
+                  <a class="ft-ns flex ai-center" href="#">
+                    하이라이트
                     <img src="./image/arrow.png" alt="">
+                  </a>
+                </div>
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-16</p>
+                  <h2 class="ft-ba">VS RGE</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="#">
+                    하이라이트
+                    <img src="./image/arrow.png" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="relative match fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/match-2.png" alt="">
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-11</p>
+                  <h2 class="ft-ba">VS GAM</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="#">
+                    하이라이트
+                    <img src="./image/arrow.png" alt="">
+                  </a>
+                </div>
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-16</p>
+                  <h2 class="ft-ba">VS GAM</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="#">
+                    하이라이트
+                    <img src="./image/arrow.png" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="relative match fill view height">
+              <img class="block fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/match-3.png" alt="">
+              <div class="wrap flex absolute fill width height">
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-10</p>
+                  <h2 class="ft-ba">VS TES</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="#">
+                    하이라이트
+                    <img src="./image/arrow.png" alt="">
+                  </a>
+                </div>
+                <div class="flex ai-center jc-center info">
+                  <p class="ft-ba">10-16</p>
+                  <h2 class="ft-ba">VS TES</h2>
+                  <h1 class="ft-ba">1 : 0</h1>
+                  <a class="ft-ns flex ai-center" href="#">
+                    하이라이트
+                    <img src="./image/arrow.png" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="relative match big">
+              <div class="video relative">
+                <div class="bg flex ai-center jc-center a-hidden fill width height">
+                  <video
+                    muted
+                    loop
+                    class="block fill width"
+                    data-src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/ground-stage"
+                  >
+                    <source src="#" type="video/webm" />
+                    <source src="#" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="absolute content fill width height">
+                  <h1 class="absolute ft-ba">TIEBREAKER</h1>
+                  <h1 class="absolute ft-ba">VS REG</h1>
+                  <h1 class="absolute ft-ba">1 : 0</h1>
+                  <img class="absolute highlight block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-1.png" alt="">
+                  <img class="absolute highlight block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-2.png" alt="">
+                  <img class="absolute highlight block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-3.png" alt="">
+                  <div class="absolute interview">
+                    <h4 class="ft-ba">DRX DEFT</h4>
+                    <p class="ft-ns">
+                      사실 결과는 상관없고 제가 느꼈을 때 항상 <span>월즈에 올 때 마다</span> <br />
+                      <span>발전했다는 느낌을 하나도 못받았었는데,</span> <br />
+                      이번 월즈가 끝날 때 제가 생각했을 때 <br />
+                      <span>제가 발전했다고 느꼈으면 그걸로 된 것 같아요.</span>
+                    </p>
+                  </div>
+                  <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=5BR8o_Q5mMk&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=11" target="_blank">
+                    하이라이트
+                    <span class="flex ai-center jc-center">
+                    <img class="block" src="./image/arrow.png" alt="">
                   </span>
-                </a>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="quarterfinals flex location" id="quarterfinals">
-            <div class="main relative">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-1.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-2.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-3.png" alt="">
+          <div class="flex location" id="quarterfinals">
+            <div class="main relative fill width height view a-hidden">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-1.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-2.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-3.png" alt="">
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">QUARTERFINALS</h1>
                 <h1 class="ft-ba">IN NEWYORK</h1>
@@ -362,52 +427,57 @@
                 </div>
               </div>
             </div>
-            <div class="content item1 relative">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/quarterfinals/content-1.png" alt="">
+            <div class="fill view height">
+              <img class="fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/quarterfinals/content-1.png" alt="">
             </div>
             <div class="content item2 relative match big relative">
-              <div class="bg">
-                <video muted loop>
-                  <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/quarterfinals.webm" type="video/webm" />
-                  <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/quarterfinals.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <div class="typo absolute">
-                <h1 class="absolute ft-ba">VS EDG</h1>
-                <h1 class="absolute ft-ba">
-                  THE  MOST <br />
-                  IMPORTANT <br />
-                  THING  IS THE <br />
-                  UNBREAKABLE HEART
-                </h1>
-                <h1 class="absolute ft-ba">3 : 2</h1>
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-1.png" alt="">
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-2.png" alt="">
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-3.png" alt="">
-                <div class="absolute interview">
-                  <h4 class="ft-ba">PYOSIK</h4>
-                  <p class="ft-ns">
-                    3세트를 시작하기 앞서 <span>주한 선수가</span> 예전 올림픽에서 <br />
-                    나는 할 수 있다를 외치는 펜싱선수 얘기를 해주었는데, <br />
-                    <span>저도 계속 할 수 있다며 저와 팀원들을 다독여서</span> <br />
-                    <span>마지막까지 집중할 수 있었고</span> 그래서 마지막 용을 스틸 할 수 <br />
-                    있었던것 같아요. 기분이 너무 좋습니다.
-                  </p>
+              <div class="video relative">
+                <div class="bg flex ai-center jc-center a-hidden fill width height">
+                  <video
+                    muted
+                    loop
+                    class="block fill width"
+                    data-src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/quarterfinals"
+                  >
+                    <source src="#" type="video/webm" />
+                    <source src="#" type="video/mp4" />
+                  </video>
                 </div>
-                <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=NOEc0wlmKS4&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=4" target="_blank">
-                  하이라이트
-                  <span class="flex ai-center jc-center">
+                <div class="absolute content fill width height">
+                  <h1 class="absolute ft-ba">VS EDG</h1>
+                  <h1 class="absolute ft-ba">THE MOST</h1>
+                  <h1 class="absolute ft-ba">IMPORTANT</h1>
+                  <h1 class="absolute ft-ba">THING IS THE</h1>
+                  <h1 class="absolute ft-ba">UNBREAKABLE HEART</h1>
+                  <h1 class="absolute ft-ba">3 : 2</h1>
+                  <img class="absolute highlight block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-1.png" alt="">
+                  <img class="absolute highlight block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-2.png" alt="">
+                  <img class="absolute highlight block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-3.png" alt="">
+                  <div class="absolute interview">
+                    <h4 class="ft-ba">DRX PYOSIK</h4>
+                    <p class="ft-ns">
+                      3세트를 시작하기 앞서 <span>주한 선수가</span> 예전 올림픽에서 <br />
+                      나는 할 수 있다를 외치는 펜싱선수 얘기를 해주었는데, <br />
+                      <span>저도 계속 할 수 있다며 저와 팀원들을 다독여서</span> <br />
+                      <span>마지막까지 집중할 수 있었고</span> 그래서 마지막 용을 스틸 할 수 <br />
+                      있었던것 같아요. 기분이 너무 좋습니다.
+                    </p>
+                  </div>
+                  <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=NOEc0wlmKS4&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=4" target="_blank">
+                    하이라이트
+                    <span class="flex ai-center jc-center">
                     <img src="./image/arrow.png" alt="">
                   </span>
-                </a>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="semifinals flex location" id="semifinals">
-            <div class="main relative">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-1.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-2.png" alt="">
-              <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-3.png" alt="">
+          <div class="flex location" id="semifinals">
+            <div class="main relative fill width height view a-hidden">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-1.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-2.png" alt="">
+              <img class="absolute block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-3.png" alt="">
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">SEMIFINALS</h1>
                 <h1 class="ft-ba">IN ATLANTA</h1>
@@ -420,44 +490,53 @@
                 </div>
               </div>
             </div>
-            <div class="content item1 relative">
-              <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/semifinals/content-1.png" alt="">
+            <div class="fill view height">
+              <img class="fill height" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/semifinals/content-1.png" alt="">
             </div>
             <div class="content item2 relative match big relative">
-              <div class="bg">
-                <video muted loop>
-                  <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/semifinals.webm" type="video/webm" />
-                  <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/semifinals.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <div class="typo absolute">
-                <h1 class="absolute ft-ba">VS EDG</h1>
-                <h1 class="absolute ft-ba">THE MOST</h1>
-                <h1 class="absolute ft-ba">3 : 2</h1>
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-1.png" alt="">
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-2.png" alt="">
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-3.png" alt="">
-                <div class="absolute interview">
-                  <h4 class="ft-ba">ZEKA</h4>
-                  <p class="ft-ns">
-                    처음 와본 월즈에서 결승까지 <span>이 모든 순간이</span> 다 처음이라서 <br />
-                    <span>아주 뜻 깊고 좋은 경험인것 같아요.</span> 제 자신감은 <br />
-                    팀원들과 감독, 코치님들의 <span>좋은 말씀들에서 자신감을 많이</span> <br />
-                    <span>얻는것 같고,</span> 상대 선수들에게도 배운다는 마음가짐으로 <br />
-                    계속 플레이 하다 보니 <span>경기에서도 배우고 느끼는게 많아요.</span>
-                  </p>
+              <div class="video relative">
+                <div class="bg flex ai-center jc-center a-hidden fill width height">
+                  <video
+                    muted
+                    loop
+                    class="block fill width"
+                    data-src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/semifinals"
+                  >
+                    <source src="#" type="video/webm" />
+                    <source src="#" type="video/mp4" />
+                  </video>
                 </div>
-                <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=hIgnLTuBnbA&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=2" target="_blank">
-                  하이라이트
-                  <span class="flex ai-center jc-center">
+                <div class="content absolute fill width height">
+                  <h1 class="absolute ft-ba">KILL</h1>
+                  <h1 class="absolute ft-ba">THE</h1>
+                  <h1 class="absolute ft-ba">GOLIATH</h1>
+                  <h1 class="absolute ft-ba">VS GEN</h1>
+                  <h1 class="absolute ft-ba">3 : 1</h1>
+                  <img class="absolute highlight block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-1.png" alt="">
+                  <img class="absolute highlight block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-2.png" alt="">
+                  <img class="absolute highlight block" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-3.png" alt="">
+                  <div class="absolute interview">
+                    <h4 class="ft-ba">DRX ZEKA</h4>
+                    <p class="ft-ns">
+                      처음 와본 월즈에서 결승까지 <span>이 모든 순간이</span> 다 처음이라서 <br />
+                      <span>아주 뜻 깊고 좋은 경험인것 같아요.</span> 제 자신감은 <br />
+                      팀원들과 감독, 코치님들의 <span>좋은 말씀들에서 자신감을 많이</span> <br />
+                      <span>얻는것 같고,</span> 상대 선수들에게도 배운다는 마음가짐으로 <br />
+                      계속 플레이 하다 보니 <span>경기에서도 배우고 느끼는게 많아요.</span>
+                    </p>
+                  </div>
+                  <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=hIgnLTuBnbA&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=2" target="_blank">
+                    하이라이트
+                    <span class="flex ai-center jc-center">
                     <img src="./image/arrow.png" alt="">
                   </span>
-                </a>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
           <div class="finals flex location" id="finals">
-            <div class="main relative">
+            <div class="main relative fill width height view a-hidden">
               <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-1.png" alt="">
               <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-2.png" alt="">
               <img class="absolute" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/tryout/main-3.png" alt="">
@@ -473,39 +552,48 @@
                 </div>
               </div>
             </div>
-            <div class="content item1 relative">
+            <div class="fill view height">
               <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/finals/content-1.png" alt="">
             </div>
-            <div class="content item2 relative match big relative">
-              <div class="bg">
-                <video muted loop>
-                  <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/finals.webm" type="video/webm" />
-                  <source src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/finals.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <div class="typo absolute">
-                <h1 class="absolute ft-ba">VS EDG</h1>
-                <h1 class="absolute ft-ba">THE MOST</h1>
-                <h1 class="absolute ft-ba">3 : 2</h1>
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-1.png" alt="">
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-2.png" alt="">
-                <img class="absolute highlight" src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/ground-stage/highlight-3.png" alt="">
-                <div class="absolute interview">
-                  <h4 class="ft-ba">KINGEN</h4>
-                  <p class="ft-ns">
-                    감독님께서 <span>롤드컵과 같은 최정상급과의 승부의 세계에서는</span> <br />
-                    <span>망설이는 사람이 진다</span> 라는 말을 해주셨는데, 이 조언이 <br />
-                    제 플레이에 많은 영향을 주었고, 이런 조언 <br />
-                    덕분에 <span>4, 5 경기가 되면 항상 검투사 정신으로 무장하고</span> <br />
-                    <span>야수의 마음가짐으로 하다 보니 잠재력이 나왔던 것 같아요.</span>
-                  </p>
-                </div>
-                <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=hIgnLTuBnbA&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=2" target="_blank">
-                  하이라이트
-                  <span class="flex ai-center jc-center">
+            <div class="relative match big">
+              <div class="video relative">
+                <div class="bg flex ai-center jc-center a-hidden fill width height">
+                  <video
+                    muted
+                    loop
+                    class="block fill width"
+                    data-src="https://drx-media.s3.ap-northeast-2.amazonaws.com/video/finals"
+                  >
+                    <source src="#" type="video/webm" />
+                    <source src="#" type="video/mp4" />
+                  </video>
+                  <div class="absolute content fill width height">
+                    <h1 class="absolute ft-ba">BEST</h1>
+                    <h1 class="absolute ft-ba">UNDERDOG</h1>
+                    <h1 class="absolute ft-ba">OF THE YEAR</h1>
+                    <h1 class="absolute ft-ba">VS T1</h1>
+                    <h1 class="absolute ft-ba">3 : 2</h1>
+                    <div class="absolute interview">
+                      <h4 class="ft-ba">DRX KINGEN</h4>
+                      <p class="ft-ns">
+                        감독님께서 <span>롤드컵과 같은 최정상급과의 승부의 세계에서는</span> <br />
+                        <span>망설이는 사람이 진다</span> 라는 말을 해주셨는데, 이 조언이 <br />
+                        제 플레이에 많은 영향을 주었고, 이런 조언 <br />
+                        덕분에 <span>4, 5 경기가 되면 항상 검투사 정신으로 무장하고</span> <br />
+                        <span>야수의 마음가짐으로 하다 보니 잠재력이 나왔던 것 같아요.</span>
+                      </p>
+                    </div>
+                    <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=hIgnLTuBnbA&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=2" target="_blank">
+                      하이라이트
+                      <span class="flex ai-center jc-center">
                     <img src="./image/arrow.png" alt="">
                   </span>
-                </a>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute a-hidden fill width height view">
+                <img src="https://drx-media.s3.ap-northeast-2.amazonaws.com/image/worlds/last.png" alt="">
               </div>
             </div>
           </div>

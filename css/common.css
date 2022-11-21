@@ -1,9 +1,15 @@
 .flex {
 	display: flex;
 }
+.block {
+	display: block;
+}
 
 .ft-ba {
 	font-family: "Baikal", sans-serif;
+}
+.ft-ba-ex {
+	font-family: "Baikal-Expanded", sans-serif;
 }
 .ft-ns {
 	font-family: "Noto Sans KR", sans-serif;
@@ -22,7 +28,40 @@
 .absolute {
 	position: absolute;
 }
+.sticky {
+	position: sticky;
+}
+.a-hidden {
+	overflow: hidden;
+}
+.y-hidden {
+	overflow-y: hidden;
+}
+.x-hidden {
+	overflow-x: hidden;
+}
+.video {
+	width: 100vw;
+	height: 100vh;
+}
+.video .bg {
+	height: 100%;
+	width: 100%;
+}
+.video .content {
+	left: 0;
+	top: 0;
+}
 
-.view-height {
+.fill.width {
+	width: 100%;
+}
+.fill.height {
+	height: 100%;
+}
+.fill.width.view {
+	width: 100vw;
+}
+.fill.height.view {
 	height: 100vh;
 }

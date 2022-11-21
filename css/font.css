@@ -26,6 +26,18 @@
 }
 @font-face {
 	font-family: "Baikal";
+	src: url("../fonts/Baikal-SemiBold.otf");
+	font-style: normal;
+	font-weight: 600;
+}
+@font-face {
+	font-family: "Baikal-Expanded";
+	src: url("../fonts/Baikal-ExpandedSemiBold.otf");
+	font-style: normal;
+	font-weight: 600;
+}
+@font-face {
+	font-family: "Baikal";
 	src: url("../fonts/Baikal-CondensedExtraBold.otf");
 	font-style: normal;
 	font-weight: 800;
