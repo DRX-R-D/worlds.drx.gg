@@ -148,11 +148,11 @@ class Scroll {
         $year.classList.remove('transition')
         $year.classList.remove('on')
 
-        $year.style.transform = `matrix(1, 0, 0, 1, -${$year.offsetWidth / 2}, -${$year.offsetHeight / 2}) scale(${3 - this.scTop * (2 / firstStep)})`
+        $year.style.transform = `matrix(1, 0, 0, 1, -${$year.offsetWidth / 2}, -${$year.offsetHeight / 2}) scale(${3 - this.scTop * (2 / firstStep)}) translateZ(0)`
       } else {
         window.scrollTo({ top: 0 })
 
-        $year.style.transform = 'matrix(1, 0, 0, 1, -377, -192) scale(3)'
+        $year.style.transform = 'matrix(1, 0, 0, 1, -377, -192) scale(3) translateZ(0)'
       }
     } else if (firstStep < this.scTop && this.scTop <= secondStep) {
       $content.classList.add('delay')
@@ -186,14 +186,14 @@ class Scroll {
       $text.classList.remove('fix')
       $text.classList.add('font-size')
 
-      const foo = (this.scTop - $start.offsetTop) * (180 / window.innerHeight) > 180 ? 180 : (this.scTop - $start.offsetTop) * (180 / window.innerHeight)
+      const diff = (this.scTop - $start.offsetTop) * (180 / window.innerHeight) > 180 ? 180 : (this.scTop - $start.offsetTop) * (180 / window.innerHeight)
 
-      $text.style.transform = `matrix(1, 0, 0, 1, -${291 - foo}, ${(this.scTop - firstStep) + 189})`
+      $text.style.transform = `matrix(1, 0, 0, 1, -${291 - diff}, ${(this.scTop - firstStep) + 189}) translateZ(0)`
     } else if (this.scTop >= $slogan.offsetTop) {
       $text.classList.add('transition')
       $text.classList.add('fix')
 
-      $text.style.transform = `matrix(1, 0, 0, 1, -111, ${($slogan.offsetTop - firstStep) + 189})`
+      $text.style.transform = `matrix(1, 0, 0, 1, -111, ${($slogan.offsetTop - firstStep) + 189}) translateZ(0)`
     } else {
       $text.style.transform = ``
     }
@@ -206,11 +206,11 @@ class Scroll {
       this.scTop >= $story.offsetTop &&
       this.scTop < ($list.offsetWidth + $story.offsetTop - window.innerWidth)
     ) {
-      $list.style.transform = `matrix(1, 0, 0, 1, ${$story.offsetTop - this.scTop}, 0)`
+      $list.style.transform = `matrix(1, 0, 0, 1, ${$story.offsetTop - this.scTop}, 0) translateZ(0)`
     } else if (this.scTop >= ($list.offsetWidth + $story.offsetTop - window.innerWidth)) {
-      $list.style.transform = `matrix(1, 0, 0, 1, ${window.innerWidth - $list.offsetWidth}, 0)`
+      $list.style.transform = `matrix(1, 0, 0, 1, ${window.innerWidth - $list.offsetWidth}, 0) translateZ(0)`
     } else {
-      $list.style.transform = `matrix(1, 0, 0, 1, 0, 0)`
+      $list.style.transform = `matrix(1, 0, 0, 1, 0, 0) translateZ(0)`
     }
   }
   continueAnimation() {
