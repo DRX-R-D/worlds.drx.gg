@@ -1,8 +1,5 @@
 'use strict';
 
-// TODO: 1920을 기본 비율로 잡아 뒀음
-// 가로가 긴 경우, 세로가 긴 경우 추가로 CHAMPION 문구 애니메이션 확인
-
 const SIZE_VALUE = {
   HOME_RATE: 3,
   YEAR_RATE: 3,
@@ -10,30 +7,8 @@ const SIZE_VALUE = {
   STORY_RATE: 2,
   CONTINUE_RATE: 6,
 }
-const DEFAULT_VALUE = {
-  YEAR_LEFT_POSITION: 0,
-  YEAR_TOP_POSITION: 270,
-  YEAR_SCALE_RATE: 3,
-}
-const CHANGE_VALUE = {
-  YEAR_LEFT_POSITION: -347,
-  YEAR_TOP_POSITION: 0,
-  YEAR_SCALE_RATE: 1,
-}
 
 let isScrolling
-
-function debounce(fn, timer) {
-  let timeOut
-
-  return function (...args) {
-    clearTimeout(timeOut)
-
-    timeOut = setTimeout(() => {
-      fn.apply(this, args)
-    }, timer)
-  }
-}
 
 function $(query) {
   const selectAll = document.querySelectorAll(query)
@@ -67,8 +42,7 @@ function animation(prev, cur, fn) {
 }
 
 class Scroll {
-  constructor(target) {
-    this.target = target
+  constructor() {
     this.scrollTop = 0
     this.scrollingDown = false
     this.loading = 0
@@ -78,11 +52,7 @@ class Scroll {
     this.scrollingDown = this.scrollTop < value
     this.scrollTop = value
 
-    this.videoAnimation(
-      DEFAULT_VALUE.YEAR_LEFT_POSITION,
-      DEFAULT_VALUE.YEAR_TOP_POSITION,
-      DEFAULT_VALUE.YEAR_SCALE_RATE,
-    )
+    this.videoAnimation()
     this.storyScroll(0)
     this.championAnimation()
     this.continueAnimation()
@@ -156,7 +126,7 @@ class Scroll {
     })
   }
 
-  videoAnimation(left, top, scale) {
+  videoAnimation() {
     const $content = $('#home .content')
     const $champion = $('#champion-text')
     const $year = $('#home .year')
@@ -165,31 +135,62 @@ class Scroll {
     const secondStep = window.innerHeight * 2
 
     if (this.scTop <= firstStep) {
-      $year.classList.remove('transition')
-      $year.classList.remove('on')
       $content.classList.remove('on')
-      $champion.classList.remove('on')
+      $content.classList.remove('delay')
 
-      $year.style.transform = `matrix(1, 0, 0, 1, -${$year.offsetWidth / 2}, -${$year.offsetHeight / 2}) scale(${3 - this.scTop * (2 / firstStep)})`
+      $champion.classList.remove('on')
+      $champion.classList.remove('delay')
+      $champion.classList.remove('fix')
+
+      if (this.isScrollingDown) {
+        $champion.classList.remove('opacity')
+
+        $year.classList.remove('transition')
+        $year.classList.remove('on')
+
+        $year.style.transform = `matrix(1, 0, 0, 1, -${$year.offsetWidth / 2}, -${$year.offsetHeight / 2}) scale(${3 - this.scTop * (2 / firstStep)})`
+      } else {
+        window.scrollTo({ top: 0 })
+
+        $year.style.transform = 'matrix(1, 0, 0, 1, -377, -192) scale(3)'
+      }
     } else if (firstStep < this.scTop && this.scTop <= secondStep) {
-      $year.classList.add('transition')
-      $year.classList.add('on')
+      $content.classList.add('delay')
       $content.classList.add('on')
+
+      $champion.classList.add('opacity')
+      $champion.classList.add('transition')
+      $champion.classList.add('delay')
       $champion.classList.add('on')
+
+      $year.classList.add('transition')
 
       $year.style.transform = ``
     }
   }
   championAnimation() {
     const $text = $('#champion-text')
+    const $start = $('#start')
     const $slogan = $('#start .slogan .sticky')
     const firstStep = window.innerHeight * (SIZE_VALUE.HOME_RATE - 1) + 173
 
-    if (firstStep <= this.scTop && this.scTop < $slogan.offsetTop) {
+    if (firstStep <= this.scTop && this.scTop < $start.offsetTop) {
       $text.classList.remove('fix')
+      $text.classList.remove('delay')
+      $text.classList.remove('transition')
+      $text.classList.remove('font-size')
+      $text.classList.remove('opacity')
 
       $text.style.transform = `matrix(1, 0, 0, 1, -291, ${(this.scTop - firstStep) + 189})`
+    } else if ($start.offsetTop <= this.scTop && this.scTop < $slogan.offsetTop) {
+      $text.classList.remove('fix')
+      $text.classList.add('font-size')
+
+      const foo = (this.scTop - $start.offsetTop) * (180 / window.innerHeight) > 180 ? 180 : (this.scTop - $start.offsetTop) * (180 / window.innerHeight)
+
+      $text.style.transform = `matrix(1, 0, 0, 1, -${291 - foo}, ${(this.scTop - firstStep) + 189})`
     } else if (this.scTop >= $slogan.offsetTop) {
+      $text.classList.add('transition')
       $text.classList.add('fix')
 
       $text.style.transform = `matrix(1, 0, 0, 1, -111, ${($slogan.offsetTop - firstStep) + 189})`
@@ -259,13 +260,13 @@ class Scroll {
   }
 }
 
-const scroll = new Scroll($('#app .main'))
+const scroll = new Scroll()
 
 scroll._init()
 
 let resizeTimeOut = null
 
-window.addEventListener('resize' , function (event) {
+window.addEventListener('resize' , function () {
   if (resizeTimeOut !== null) clearTimeout(resizeTimeOut)
 
   if (window.innerWidth <= window.innerHeight) {
@@ -273,15 +274,6 @@ window.addEventListener('resize' , function (event) {
   } else {
     document.body.classList.remove('hidden')
   }
-
-  console.log(event)
-
-  // document.querySelector('#loading').classList.remove('on')
-  //
-  // resizeTimeOut = setTimeout(() => {
-  //   window.scrollTo({ top: 0 })
-  //   scroll._init()
-  // }, 500)
 })
 
 const startIO = new IntersectionObserver(function (entries) {
@@ -311,10 +303,22 @@ const videoImageIO = new IntersectionObserver(function (entries) {
 }, {
   threshold: 0.8,
 })
+const seasonIO = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('on')
+    }
+  })
+}, {
+  threshold: 0.5,
+})
 
 startIO.observe($('#start .slogan .sticky'))
 
 $('.video').forEach((dom) => {
   videoIO.observe(dom)
   videoImageIO.observe(dom)
+})
+$('#start .season .content').forEach((dom) => {
+  seasonIO.observe(dom)
 })

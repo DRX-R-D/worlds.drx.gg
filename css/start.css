@@ -120,6 +120,9 @@
 	margin-left: 23.43rem;
 	margin-right: 70.06rem;
 	z-index: 10;
+	opacity: 0;
+	transform: translateX(-10%);
+	transition: all var(--transition-time);
 }
 #start > .history .content.item1 p {
 	transform: rotate(-90deg) translate(0, calc(-100% - 444px));
@@ -137,12 +140,20 @@
 	margin-right: 150px;
 	margin-top: -375px;
 	z-index: 8;
+	opacity: 0;
+	transform: translateY(10%);
+	transition: all var(--transition-time);
 }
 #start > .history .content.item2 .typo {
 	flex-direction: column;
 	gap: 12px;
 	left: -118px;
 	top: -160px;
+	opacity: 0;
+	transform: translateX(-10%);
+	transition-property: transform, opacity;
+	transition-delay: 0.5s;
+	transition-duration: var(--transition-time);
 }
 #start > .history .content.item2 .typo h3 {
 	color: #FFFFFF66;
@@ -157,6 +168,9 @@
 	width: 787px;
 	margin-left: 607px;
 	margin-top: -86px;
+	opacity: 0;
+	transform: translateX(10%);
+	transition: all var(--transition-time);
 }
 #start > .history .content.item3 p {
 	color: #FFFFFF59;
@@ -166,18 +180,52 @@
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 30px;
+	opacity: 0;
+	transition-property: opacity;
+	transition-delay: 0.6s;
+	transition-duration: var(--transition-time);
 }
 #start > .history .content.item4 {
 	gap: 12px;
 	margin-left: 150px;
 	margin-top: -105px;
-}
-#start > .history .content.item4 .thumb {
-	width: 308px;
-}
-#start > .history .content.item4 {
 	font-size: 300px;
 	line-height: 330px;
 	font-weight: 500;
 	color: #FFFFFF05;
+}
+#start > .history .content.item4 .thumb {
+	width: 308px;
+	opacity: 0;
+	transform: translateY(10%);
+	transition: all var(--transition-time);
+}
+#start > .history .content.item4 .thumb:nth-of-type(1) {
+	transition-delay: 0s;
+}
+#start > .history .content.item4 .thumb:nth-of-type(2) {
+	transition-delay: 0.3s;
+}
+#start > .history .content.item1.on {
+	opacity: 1;
+	transform: translateX(0);
+}
+#start > .history .content.item2.on {
+	opacity: 1;
+	transform: translateY(0);
+}
+#start > .history .content.item2.on .typo {
+	opacity: 1;
+	transform: translateX(0);
+}
+#start > .history .content.item3.on {
+	opacity: 1;
+	transform: translateX(0);
+}
+#start > .history .content.item3.on p {
+	opacity: 1;
+}
+#start > .history .content.item4.on .thumb {
+	opacity: 1;
+	transform: translateY(0);
 }

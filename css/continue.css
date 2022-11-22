@@ -100,21 +100,13 @@
 	transform: rotate(180deg);
 }
 #continue .content .typo.item4 .partner {
-	gap: 1.93rem;
+	gap: 68px;
 	opacity: 0;
 	transition: opacity .3s;
 	transition-delay: 1.8s;
 	margin-top: 6.62rem;
 }
-#continue .content .typo.item4 .partner li {
-	width: 5.93rem;
-}
-#continue .content .typo.item4 .partner li:first-of-type {
-	width: 6rem;
-}
 #continue .content .typo.item4 .partner li img {
-	display: block;
-	width: 100%;
 	opacity: 0.5;
 }
 #continue .content .typo.item4.change .page-map,
