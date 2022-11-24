@@ -6,16 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>DRX | World Champion</title>
 
-  <link rel="preload" as="font">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/font.css">
 
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="preload" href="./fonts/Baikal-Black.otf" as="font">
+  <link rel="preload" href="./fonts/Baikal-CondensedExtraBold.otf" as="font">
+  <link rel="preload" href="./fonts/Baikal-ExpandedSemiBold.otf" as="font">
+  <link rel="preload" href="./fonts/Baikal-ExtraLight.otf" as="font">
+  <link rel="preload" href="./fonts/Baikal-Medium.otf" as="font">
+  <link rel="preload" href="./fonts/Baikal-Regular.otf" as="font">
+  <link rel="preload" href="./fonts/Baikal-Regular.otf" as="font">
+  <link rel="preload" href="./fonts/Baikal-SemiBold.otf" as="font">
+  <link rel="preload" href="./fonts/Baikal-Thin.otf" as="font">
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" as="style">
+  <link rel="stylesheet" href="./css/font.css" as="style">
+
+  <link rel="stylesheet" href="./css/reset.css" as="style">
+  <link rel="stylesheet" href="./css/common.css" as="style">
+  <link rel="stylesheet" href="./css/main.css" as="style">
+  
+  <script src="./js/wc.js"></script>
+  <script src="./compoents/Video.js"></script>
+  <script src="./compoents/Image.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body class="hidden">
@@ -24,15 +37,9 @@
     <div class="container relative" id="home">
       <div class="video sticky">
         <div class="bg flex ai-center jc-center a-hidden fill width height">
-          <video
-            muted
-            loop
-            class="block fill width"
-            data-src="https://media.drx.gg/video/world-main"
-          >
-            <source src="#" type="video/webm" />
-            <source src="#" type="video/mp4" />
-          </video>
+          <x-video
+            src="https://media.drx.gg/video/world-main"
+          ></x-video>
         </div>
         <div class="absolute flex ai-center jc-center content fill width height a-hidden">
           <h1 class="absolute ft-ba year" style="transform: matrix(1, 0, 0, 1, -377, -192) scale(3)">2022</h1>
@@ -91,9 +98,13 @@
         <!--    <h2 class="bg absolute ft-ba item2">A WEAK</h2>-->
         <div class="content item1 relative">
           <p class="absolute ft-ba">LAST DANCE</p>
-          <div class="thumb">
-            <img src="https://media.drx.gg/image/worlds/season-1.png" width="422" height="599" alt="">
-          </div>
+          <x-image
+            class="thumb"
+            src="https://media.drx.gg/image/worlds/season-1"
+            width="424"
+            height="599"
+            alt="Season"
+          ></x-image>
         </div>
         <div class="content item2 relative">
           <div class="absolute flex typo">
@@ -102,9 +113,13 @@
             <h3 class="ft-ns">우승 확률 0.03%</h3>
             <h3 class="ft-ns">우승은 불가능</h3>
           </div>
-          <div class="thumb">
-            <img src="https://media.drx.gg/image/worlds/season-2.png" width="568" height="697" alt="">
-          </div>
+          <x-image
+            class="thumb"
+            src="https://media.drx.gg/image/worlds/season-2"
+            width="568"
+            height="697"
+            alt="Season"
+          ></x-image>
         </div>
         <div class="content item3 relative">
           <p class="ft-ns absolute">
@@ -112,17 +127,29 @@
             안 될 거라는 두려움보다는 나는 무조건 된다는 <br />
             자신감이 재능과 만나면 실력이 크게 향상된다고 믿고 있어요.
           </p>
-          <div class="thumb">
-            <img src="https://media.drx.gg/image/worlds/season-3.png" width="787" height="527" alt="">
-          </div>
+          <x-image
+            class="thumb"
+            src="https://media.drx.gg/image/worlds/season-3"
+            width="787"
+            height="527"
+            alt="Season"
+          ></x-image>
         </div>
         <div class="content item4 relative flex">
-          <div class="thumb">
-            <img class="block fill width" src="https://media.drx.gg/image/worlds/season-4.png" width="308" height="443" alt="">
-          </div>
-          <div class="thumb">
-            <img class="block fill width" src="https://media.drx.gg/image/worlds/season-5.png" width="308" height="443" alt="">
-          </div>
+          <x-image
+            class="thumb"
+            src="https://media.drx.gg/image/worlds/season-4"
+            width="308"
+            height="443"
+            alt="Season"
+          ></x-image>
+          <x-image
+            class="thumb"
+            src="https://media.drx.gg/image/worlds/season-5"
+            width="308"
+            height="443"
+            alt="Season"
+          ></x-image>
         </div>
         <h2 class="bg absolute ft-ba item2">A WEAK</h2>
       </div>
@@ -132,7 +159,10 @@
         <div class="list flex fill height view">
           <div class="video relative flex ai-center jc-center">
             <div class="bg flex ai-center jc-center a-hidden fill width height">
-              <video
+              <x-video
+                src="https://media.drx.gg/video/butwemakeitblue"
+              ></x-video>
+              <!-- <video
                 muted
                 loop
                 class="block fill width"
@@ -140,7 +170,7 @@
               >
                 <source src="#" type="video/webm" />
                 <source src="#" type="video/mp4" />
-              </video>
+              </video> -->
             </div>
             <div class="absolute flex ai-center jc-center content fill width height">
               <h1 class="ft-ba">BUT WE MAKE IT BLUE</h1>
@@ -380,7 +410,10 @@
             <div class="relative match big">
               <div class="video relative">
                 <div class="bg flex ai-center jc-center a-hidden fill width height">
-                  <video
+                  <x-video
+                    src="https://media.drx.gg/video/ground-stage"
+                  ></x-video>
+                  <!-- <video
                     muted
                     loop
                     class="block fill width"
@@ -388,7 +421,7 @@
                   >
                     <source src="#" type="video/webm" />
                     <source src="#" type="video/mp4" />
-                  </video>
+                  </video> -->
                 </div>
                 <div class="absolute content fill width height">
                   <h1 class="absolute ft-ba">TIEBREAKER</h1>
@@ -439,7 +472,10 @@
             <div class="content item2 relative match big relative">
               <div class="video relative">
                 <div class="bg flex ai-center jc-center a-hidden fill width height">
-                  <video
+                  <x-video
+                    src="https://media.drx.gg/video/quarterfinals"
+                  ></x-video>
+                  <!-- <video
                     muted
                     loop
                     class="block fill width"
@@ -447,7 +483,7 @@
                   >
                     <source src="#" type="video/webm" />
                     <source src="#" type="video/mp4" />
-                  </video>
+                  </video> -->
                 </div>
                 <div class="absolute content fill width height">
                   <h1 class="absolute ft-ba">VS EDG</h1>
@@ -502,7 +538,10 @@
             <div class="content item2 relative match big relative">
               <div class="video relative">
                 <div class="bg flex ai-center jc-center a-hidden fill width height">
-                  <video
+                  <x-video
+                    src="https://media.drx.gg/video/semifinals"
+                  ></x-video>
+                  <!-- <video
                     muted
                     loop
                     class="block fill width"
@@ -510,7 +549,7 @@
                   >
                     <source src="#" type="video/webm" />
                     <source src="#" type="video/mp4" />
-                  </video>
+                  </video> -->
                 </div>
                 <div class="content absolute fill width height">
                   <h1 class="absolute ft-ba">KILL</h1>
@@ -564,7 +603,10 @@
             <div class="relative match big">
               <div class="video relative">
                 <div class="bg flex ai-center jc-center a-hidden fill width height">
-                  <video
+                  <x-video
+                    src="https://media.drx.gg/video/finals"
+                  ></x-video>
+                  <!-- <video
                     muted
                     loop
                     class="block fill width"
@@ -572,7 +614,7 @@
                   >
                     <source src="#" type="video/webm" />
                     <source src="#" type="video/mp4" />
-                  </video>
+                  </video> -->
                   <div class="absolute content fill width height">
                     <h1 class="absolute ft-ba">BEST</h1>
                     <h1 class="absolute ft-ba">UNDERDOG</h1>

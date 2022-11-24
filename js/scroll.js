@@ -83,11 +83,11 @@ class Scroll {
     $videoList.forEach((dom) => {
       const src = dom.dataset.src
 
-      Array.from(dom.children).forEach((child) => {
-        const type = child.type
+      // Array.from(dom.children).forEach((child) => {
+      //   const type = child.type
 
-        child.setAttribute('src', `${src}.${type.replace('video/', '')}`)
-      })
+      //   child.setAttribute('src', `${src}.${type.replace('video/', '')}`)
+      // })
 
       dom.load()
 
@@ -287,13 +287,6 @@ const startIO = new IntersectionObserver(function (entries) {
 }, {
   threshold: 0.3,
 })
-const videoIO = new IntersectionObserver(function (entries) {
-  entries.forEach(function (entry) {
-    entry.target.querySelector('video').play()
-  })
-}, {
-  threshold: 0.5,
-})
 const videoImageIO = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {
@@ -310,13 +303,12 @@ const seasonIO = new IntersectionObserver(function (entries) {
     }
   })
 }, {
-  threshold: 0.5,
+  threshold: 0.8,
 })
 
 startIO.observe($('#start .slogan .sticky'))
 
 $('.video').forEach((dom) => {
-  videoIO.observe(dom)
   videoImageIO.observe(dom)
 })
 $('#start .season .content').forEach((dom) => {
