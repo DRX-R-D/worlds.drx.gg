@@ -25,11 +25,12 @@
   <link rel="stylesheet" href="./css/reset.css" as="style">
   <link rel="stylesheet" href="./css/common.css" as="style">
   <link rel="stylesheet" href="./css/main.css" as="style">
-  
+
   <script src="./js/wc.js"></script>
-  <script src="./compoents/Video.js"></script>
-  <script src="./compoents/Image.js"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="components/Video.js"></script>
+  <script src="components/Image.js"></script>
+  <script src="components/Logo.js"></script>
+<!--  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>-->
 </head>
 <body class="hidden">
 <div id="app" class="relative">
@@ -37,9 +38,9 @@
     <div class="container relative" id="home">
       <div class="video sticky">
         <div class="bg flex ai-center jc-center a-hidden fill width height">
-          <x-video
+          <d-video
             src="https://media.drx.gg/video/world-main"
-          ></x-video>
+          ></d-video>
         </div>
         <div class="absolute flex ai-center jc-center content fill width height a-hidden">
           <h1 class="absolute ft-ba year" style="transform: matrix(1, 0, 0, 1, -377, -192) scale(3)">2022</h1>
@@ -49,13 +50,21 @@
             <li>
               <a href="https://main.drx.gg" class="ft-ba flex ai-center">
                 HOME
-                <img class="block" src="./image/arrow.png" width="14" height="12" alt="">
+                <d-image
+                  src="./image/arrow"
+                  width="14"
+                  alt="Arrow"
+                ></d-image>
               </a>
             </li>
             <li>
               <a href="#" class="ft-ba flex ai-center">
                 SHOP
-                <img class="block" src="./image/arrow.png" width="14" height="12" alt="">
+                <d-image
+                  src="./image/arrow"
+                  width="14"
+                  alt="Arrow"
+                ></d-image>
               </a>
             </li>
           </ul>
@@ -98,13 +107,13 @@
         <!--    <h2 class="bg absolute ft-ba item2">A WEAK</h2>-->
         <div class="content item1 relative">
           <p class="absolute ft-ba">LAST DANCE</p>
-          <x-image
+          <d-image
             class="thumb"
             src="https://media.drx.gg/image/worlds/season-1"
             width="424"
             height="599"
             alt="Season"
-          ></x-image>
+          ></d-image>
         </div>
         <div class="content item2 relative">
           <div class="absolute flex typo">
@@ -113,13 +122,13 @@
             <h3 class="ft-ns">우승 확률 0.03%</h3>
             <h3 class="ft-ns">우승은 불가능</h3>
           </div>
-          <x-image
+          <d-image
             class="thumb"
             src="https://media.drx.gg/image/worlds/season-2"
             width="568"
             height="697"
             alt="Season"
-          ></x-image>
+          ></d-image>
         </div>
         <div class="content item3 relative">
           <p class="ft-ns absolute">
@@ -127,29 +136,29 @@
             안 될 거라는 두려움보다는 나는 무조건 된다는 <br />
             자신감이 재능과 만나면 실력이 크게 향상된다고 믿고 있어요.
           </p>
-          <x-image
+          <d-image
             class="thumb"
             src="https://media.drx.gg/image/worlds/season-3"
             width="787"
             height="527"
             alt="Season"
-          ></x-image>
+          ></d-image>
         </div>
         <div class="content item4 relative flex">
-          <x-image
+          <d-image
             class="thumb"
             src="https://media.drx.gg/image/worlds/season-4"
             width="308"
             height="443"
             alt="Season"
-          ></x-image>
-          <x-image
+          ></d-image>
+          <d-image
             class="thumb"
             src="https://media.drx.gg/image/worlds/season-5"
             width="308"
             height="443"
             alt="Season"
-          ></x-image>
+          ></d-image>
         </div>
         <h2 class="bg absolute ft-ba item2">A WEAK</h2>
       </div>
@@ -159,18 +168,9 @@
         <div class="list flex fill height view">
           <div class="video relative flex ai-center jc-center">
             <div class="bg flex ai-center jc-center a-hidden fill width height">
-              <x-video
+              <d-video
                 src="https://media.drx.gg/video/butwemakeitblue"
-              ></x-video>
-              <!-- <video
-                muted
-                loop
-                class="block fill width"
-                data-src="https://media.drx.gg/video/butwemakeitblue"
-              >
-                <source src="#" type="video/webm" />
-                <source src="#" type="video/mp4" />
-              </video> -->
+              ></d-video>
             </div>
             <div class="absolute flex ai-center jc-center content fill width height">
               <h1 class="ft-ba">BUT WE MAKE IT BLUE</h1>
@@ -178,10 +178,34 @@
           </div>
           <div class="flex location" id="tryout">
             <div class="main relative fill width height view a-hidden">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/tryout/main-1.png" width="1053" height="364" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/tryout/main-2.png" width="631" height="389" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/tryout/main-3.png" width="631" height="389" alt="">
-              <img class="absolute block" src="./image/arrow.png" width="122" height="102" alt="">
+              <d-image
+                class="absolute thumb block"
+                src="https://media.drx.gg/image/worlds/tryout/main-1"
+                width="1053"
+                height="364"
+                alt="Qualifier"
+              ></d-image>
+              <d-image
+                class="absolute thumb block"
+                src="https://media.drx.gg/image/worlds/tryout/main-2"
+                width="631"
+                height="389"
+                alt="Qualifier"
+              ></d-image>
+              <d-image
+                class="absolute thumb block"
+                src="https://media.drx.gg/image/worlds/tryout/main-3"
+                width="631"
+                height="389"
+                alt="Qualifier"
+              ></d-image>
+              <d-image
+                class="absolute thumb block"
+                src="./image/arrow"
+                width="122"
+                height="102"
+                alt="Arrow"
+              ></d-image>
               <div class="typo absolute flex ai-center jc-center">
                 <span class="ft-ba absolute">REGIONAL</span>
                 <h1 class="ft-ba">QUALIFIER</h1>
@@ -196,10 +220,20 @@
               </div>
             </div>
             <div class="fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/tryout/content-1.png" width="1056" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/tryout/content-1"
+                height="100%"
+                alt="Content"
+              ></d-image>
             </div>
             <div class="relative match fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/tryout/content-2.png" width="700" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/tryout/content-2"
+                height="100%"
+                alt="Content"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">09-02</p>
@@ -207,13 +241,23 @@
                   <h1 class="ft-ba">3 : 2</h1>
                   <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=u7OPv5oHIko&list=PLIWtfvmBcNoeZ6EL81B1rvEFFKgkdzGRK&index=2" target="_blank">
                     하이라이트
-                    <img class="block" src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
             </div>
             <div class="relative match fill view height">
-              <img src="https://media.drx.gg/image/worlds/tryout/content-3.png" width="700" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/tryout/content-3"
+                height="100%"
+                alt="Content"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">09-03</p>
@@ -221,7 +265,12 @@
                   <h1 class="ft-ba">3 : 2</h1>
                   <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=MYa9t2SLrqg&list=PLIWtfvmBcNoeZ6EL81B1rvEFFKgkdzGRK&index=1" target="_blank">
                     하이라이트
-                    <img src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
@@ -229,9 +278,27 @@
           </div>
           <div class="flex location" id="play-in">
             <div class="main relative fill width height view a-hidden">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/play-in/main-1.png" width="1053" height="364" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/play-in/main-2.png" width="631" height="389" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/play-in/main-3.png" width="631" height="389" alt="">
+              <d-image
+                class="block absolute thumb"
+                src="https://media.drx.gg/image/worlds/play-in/main-1"
+                width="1053"
+                height="364"
+                alt="Play-In"
+              ></d-image>
+              <d-image
+                class="block absolute thumb"
+                src="https://media.drx.gg/image/worlds/play-in/main-2"
+                width="631"
+                height="389"
+                alt="Play-In"
+              ></d-image>
+              <d-image
+                class="block absolute thumb"
+                src="https://media.drx.gg/image/worlds/play-in/main-3"
+                width="631"
+                height="389"
+                alt="Play-In"
+              ></d-image>
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">PLAY-INS</h1>
                 <h1 class="ft-ba">IN MEXICO</h1>
@@ -245,10 +312,20 @@
               </div>
             </div>
             <div class="fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/play-in/content-1.png" width="994" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/play-in/content-1"
+                height="100%"
+                alt="Content"
+              ></d-image>
             </div>
             <div class="relative match fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/play-in/match-1.png" width="506" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/play-in/match-1"
+                height="100%"
+                alt="Match"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">09-30</p>
@@ -256,13 +333,23 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=6YnS_R-6_Zs&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=38" target="_blank">
                     하이라이트
-                    <img class="block" src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
             </div>
             <div class="relative match fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/play-in/match-2.png" width="506" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/play-in/match-2"
+                height="100%"
+                alt="Match"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">10-01</p>
@@ -270,13 +357,23 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=4jClgjtyCl4&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=37" target="_blank">
                     하이라이트
-                    <img class="block" src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
             </div>
             <div class="relative match fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/play-in/match-3.png" width="506" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/play-in/match-3"
+                height="100%"
+                alt="Match"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">10-01</p>
@@ -284,13 +381,23 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=7IUaCpVa5g8&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=36" target="_blank">
                     하이라이트
-                    <img class="block" src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
             </div>
             <div class="relative match fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/play-in/match-4.png" width="506" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/play-in/match-4"
+                height="100%"
+                alt="Match"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">10-02</p>
@@ -298,13 +405,23 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=OPCY1Jm1hFw&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=35" target="_blank">
                     하이라이트
-                    <img class="block" src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
             </div>
             <div class="relative match fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/play-in/match-5.png" width="506" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/play-in/match-5"
+                height="100%"
+                alt="Match"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">10-03</p>
@@ -312,17 +429,40 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="https://www.youtube.com/watch?v=VODsSn6fB98&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=34" target="_blank">
                     하이라이트
-                    <img class="block" src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="flex location" id="ground-stage" >
+          <div class="flex location" id="ground-stage">
             <div class="main relative fill width height view a-hidden">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/ground-stage/main-1.png" width="1053" height="364" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/ground-stage/main-2.png" width="631" height="389" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/ground-stage/main-3.png" width="631" height="389" alt="">
+              <d-image
+                class="block absolute thumb"
+                src="https://media.drx.gg/image/worlds/ground-stage/main-1"
+                width="1053"
+                height="364"
+                alt="Ground Stage"
+              ></d-image>
+              <d-image
+                class="block absolute thumb"
+                src="https://media.drx.gg/image/worlds/ground-stage/main-2"
+                width="631"
+                height="389"
+                alt="Ground Stage"
+              ></d-image>
+              <d-image
+                class="block absolute thumb"
+                src="https://media.drx.gg/image/worlds/ground-stage/main-3"
+                width="631"
+                height="389"
+                alt="Ground Stage"
+              ></d-image>
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">GROUP STAGE</h1>
                 <h1 class="ft-ba">IN NEWYORK</h1>
@@ -336,10 +476,20 @@
               </div>
             </div>
             <div class="fill view height">
-              <img class="fill height" src="https://media.drx.gg/image/worlds/ground-stage/content-1.png" width="1193" height="100%" alt="">
+              <d-image
+                class="fill height"
+                src="https://media.drx.gg/image/worlds/ground-stage/content-1"
+                height="100%"
+                alt="Content"
+              ></d-image>
             </div>
             <div class="relative match fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/ground-stage/match-1.png" width="506" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/ground-stage/match-1"
+                height="100%"
+                alt="Match"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">10-09</p>
@@ -347,7 +497,12 @@
                   <h1 class="ft-ba">0 : 1</h1>
                   <a class="ft-ns flex ai-center" href="#">
                     하이라이트
-                    <img src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
                 <div class="flex ai-center jc-center info">
@@ -356,13 +511,23 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="#">
                     하이라이트
-                    <img src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
             </div>
             <div class="relative match fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/ground-stage/match-2.png" width="506" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/ground-stage/match-2"
+                height="100%"
+                alt="Match"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">10-11</p>
@@ -370,7 +535,12 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="#">
                     하이라이트
-                    <img src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
                 <div class="flex ai-center jc-center info">
@@ -379,13 +549,23 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="#">
                     하이라이트
-                    <img src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
             </div>
             <div class="relative match fill view height">
-              <img class="block fill height" src="https://media.drx.gg/image/worlds/ground-stage/match-3.png" width="506" height="100%" alt="">
+              <d-image
+                class="block fill height"
+                src="https://media.drx.gg/image/worlds/ground-stage/match-3"
+                height="100%"
+                alt="Match"
+              ></d-image>
               <div class="wrap flex absolute fill width height">
                 <div class="flex ai-center jc-center info">
                   <p class="ft-ba">10-10</p>
@@ -393,7 +573,12 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="#">
                     하이라이트
-                    <img src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
                 <div class="flex ai-center jc-center info">
@@ -402,7 +587,12 @@
                   <h1 class="ft-ba">1 : 0</h1>
                   <a class="ft-ns flex ai-center" href="#">
                     하이라이트
-                    <img src="./image/arrow.png" alt="">
+                    <d-image
+                      class="block"
+                      src="./image/arrow"
+                      width="14"
+                      alt="Arrow"
+                    ></d-image>
                   </a>
                 </div>
               </div>
@@ -410,26 +600,35 @@
             <div class="relative match big">
               <div class="video relative">
                 <div class="bg flex ai-center jc-center a-hidden fill width height">
-                  <x-video
+                  <d-video
                     src="https://media.drx.gg/video/ground-stage"
-                  ></x-video>
-                  <!-- <video
-                    muted
-                    loop
-                    class="block fill width"
-                    data-src="https://media.drx.gg/video/ground-stage"
-                  >
-                    <source src="#" type="video/webm" />
-                    <source src="#" type="video/mp4" />
-                  </video> -->
+                  ></d-video>
                 </div>
                 <div class="absolute content fill width height">
                   <h1 class="absolute ft-ba">TIEBREAKER</h1>
                   <h1 class="absolute ft-ba">VS REG</h1>
                   <h1 class="absolute ft-ba">1 : 0</h1>
-                  <img class="absolute highlight block" src="https://media.drx.gg/image/worlds/ground-stage/highlight-1.png" width="300" height="206" alt="">
-                  <img class="absolute highlight block" src="https://media.drx.gg/image/worlds/ground-stage/highlight-2.png" width="300" height="206" alt="">
-                  <img class="absolute highlight block" src="https://media.drx.gg/image/worlds/ground-stage/highlight-3.png" width="300" height="206" alt="">
+                  <d-image
+                    class="absolute highlight block"
+                    src="https://media.drx.gg/image/worlds/ground-stage/highlight-1"
+                    width="300"
+                    height="206"
+                    alt="Highlight"
+                  ></d-image>
+                  <d-image
+                    class="absolute highlight block"
+                    src="https://media.drx.gg/image/worlds/ground-stage/highlight-2"
+                    width="300"
+                    height="206"
+                    alt="Highlight"
+                  ></d-image>
+                  <d-image
+                    class="absolute highlight block"
+                    src="https://media.drx.gg/image/worlds/ground-stage/highlight-3"
+                    width="300"
+                    height="206"
+                    alt="Highlight"
+                  ></d-image>
                   <div class="absolute interview">
                     <h4 class="ft-ba">DRX DEFT</h4>
                     <p class="ft-ns">
@@ -442,8 +641,13 @@
                   <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=5BR8o_Q5mMk&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=11" target="_blank">
                     하이라이트
                     <span class="flex ai-center jc-center">
-                    <img class="block" src="./image/arrow.png" alt="">
-                  </span>
+                      <d-image
+                        class="block"
+                        src="./image/arrow"
+                        width="14"
+                        alt="Arrow"
+                      ></d-image>
+                    </span>
                   </a>
                 </div>
               </div>
@@ -451,9 +655,27 @@
           </div>
           <div class="flex location" id="quarterfinals">
             <div class="main relative fill width height view a-hidden">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/quarterfinals/main-1.png" width="1053" height="364" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/quarterfinals/main-2.png" width="631" height="389" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/quarterfinals/main-3.png" width="631" height="389" alt="">
+              <d-image
+                class="absolute block thumb"
+                src="https://media.drx.gg/image/worlds/quarterfinals/main-1"
+                width="1053"
+                height="364"
+                alt="Quarterfinals"
+              ></d-image>
+              <d-image
+                class="absolute block thumb"
+                src="https://media.drx.gg/image/worlds/quarterfinals/main-2"
+                width="631"
+                height="389"
+                alt="Quarterfinals"
+              ></d-image>
+              <d-image
+                class="absolute block thumb"
+                src="https://media.drx.gg/image/worlds/quarterfinals/main-3"
+                width="631"
+                height="389"
+                alt="Quarterfinals"
+              ></d-image>
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">QUARTERFINALS</h1>
                 <h1 class="ft-ba">IN NEWYORK</h1>
@@ -467,23 +689,19 @@
               </div>
             </div>
             <div class="fill view height">
-              <img class="fill height" src="https://media.drx.gg/image/worlds/quarterfinals/content-1.png" width="889" height="100%" alt="">
+              <d-image
+                class="fill height"
+                src="https://media.drx.gg/image/worlds/quarterfinals/content-1"
+                height="100%"
+                alt="Content"
+              ></d-image>
             </div>
             <div class="content item2 relative match big relative">
               <div class="video relative">
                 <div class="bg flex ai-center jc-center a-hidden fill width height">
-                  <x-video
+                  <d-video
                     src="https://media.drx.gg/video/quarterfinals"
-                  ></x-video>
-                  <!-- <video
-                    muted
-                    loop
-                    class="block fill width"
-                    data-src="https://media.drx.gg/video/quarterfinals"
-                  >
-                    <source src="#" type="video/webm" />
-                    <source src="#" type="video/mp4" />
-                  </video> -->
+                  ></d-video>
                 </div>
                 <div class="absolute content fill width height">
                   <h1 class="absolute ft-ba">VS EDG</h1>
@@ -492,9 +710,27 @@
                   <h1 class="absolute ft-ba">THING IS THE</h1>
                   <h1 class="absolute ft-ba">UNBREAKABLE HEART</h1>
                   <h1 class="absolute ft-ba">3 : 2</h1>
-                  <img class="absolute highlight block" src="https://media.drx.gg/image/worlds/quarterfinals/highlight-1.png" width="300" height="206" alt="">
-                  <img class="absolute highlight block" src="https://media.drx.gg/image/worlds/quarterfinals/highlight-2.png" width="300" height="206" alt="">
-                  <img class="absolute highlight block" src="https://media.drx.gg/image/worlds/quarterfinals/highlight-3.png" width="300" height="206" alt="">
+                  <d-image
+                    class="absolute highlight block"
+                    src="https://media.drx.gg/image/worlds/quarterfinals/highlight-3"
+                    width="300"
+                    height="206"
+                    alt="Highlight"
+                  ></d-image>
+                  <d-image
+                    class="absolute highlight block"
+                    src="https://media.drx.gg/image/worlds/quarterfinals/highlight-3"
+                    width="300"
+                    height="206"
+                    alt="Highlight"
+                  ></d-image>
+                  <d-image
+                    class="absolute highlight block"
+                    src="https://media.drx.gg/image/worlds/quarterfinals/highlight-3"
+                    width="300"
+                    height="206"
+                    alt="Highlight"
+                  ></d-image>
                   <div class="absolute interview">
                     <h4 class="ft-ba">DRX PYOSIK</h4>
                     <p class="ft-ns">
@@ -508,8 +744,13 @@
                   <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=NOEc0wlmKS4&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=4" target="_blank">
                     하이라이트
                     <span class="flex ai-center jc-center">
-                    <img src="./image/arrow.png" alt="">
-                  </span>
+                      <d-image
+                        class="block"
+                        src="./image/arrow"
+                        width="14"
+                        alt="Arrow"
+                      ></d-image>
+                    </span>
                   </a>
                 </div>
               </div>
@@ -517,9 +758,27 @@
           </div>
           <div class="flex location" id="semifinals">
             <div class="main relative fill width height view a-hidden">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/semifinals/main-1.png" width="1053" height="364" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/semifinals/main-2.png" width="631" height="389" alt="">
-              <img class="absolute block" src="https://media.drx.gg/image/worlds/semifinals/main-3.png" width="631" height="389" alt="">
+              <d-image
+                class="absolute block thumb"
+                src="https://media.drx.gg/image/worlds/semifinals/main-1"
+                width="1053"
+                height="364"
+                alt="Semifinals"
+              ></d-image>
+              <d-image
+                class="absolute block thumb"
+                src="https://media.drx.gg/image/worlds/semifinals/main-2"
+                width="631"
+                height="389"
+                alt="Semifinals"
+              ></d-image>
+              <d-image
+                class="absolute block thumb"
+                src="https://media.drx.gg/image/worlds/semifinals/main-3"
+                width="631"
+                height="389"
+                alt="Semifinals"
+              ></d-image>
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">SEMIFINALS</h1>
                 <h1 class="ft-ba">IN ATLANTA</h1>
@@ -533,23 +792,19 @@
               </div>
             </div>
             <div class="fill view height">
-              <img class="fill height" src="https://media.drx.gg/image/worlds/semifinals/content-1.png" width="1469" height="100%" alt="">
+              <d-image
+                class="fill height"
+                src="https://media.drx.gg/image/worlds/semifinals/content-1"
+                height="100%"
+                alt="Content"
+              ></d-image>
             </div>
             <div class="content item2 relative match big relative">
               <div class="video relative">
                 <div class="bg flex ai-center jc-center a-hidden fill width height">
-                  <x-video
+                  <d-video
                     src="https://media.drx.gg/video/semifinals"
-                  ></x-video>
-                  <!-- <video
-                    muted
-                    loop
-                    class="block fill width"
-                    data-src="https://media.drx.gg/video/semifinals"
-                  >
-                    <source src="#" type="video/webm" />
-                    <source src="#" type="video/mp4" />
-                  </video> -->
+                  ></d-video>
                 </div>
                 <div class="content absolute fill width height">
                   <h1 class="absolute ft-ba">KILL</h1>
@@ -557,9 +812,27 @@
                   <h1 class="absolute ft-ba">GOLIATH</h1>
                   <h1 class="absolute ft-ba">VS GEN</h1>
                   <h1 class="absolute ft-ba">3 : 1</h1>
-                  <img class="absolute highlight block" src="https://media.drx.gg/image/worlds/semifinals/highlight-1.png" width="300" height="206" alt="">
-                  <img class="absolute highlight block" src="https://media.drx.gg/image/worlds/semifinals/highlight-2.png" width="300" height="206" alt="">
-                  <img class="absolute highlight block" src="https://media.drx.gg/image/worlds/semifinals/highlight-3.png" width="300" height="206" alt="">
+                  <d-image
+                    class="absolute highlight block"
+                    src="https://media.drx.gg/image/worlds/semifinals/highlight-3"
+                    width="300"
+                    height="206"
+                    alt="Highlight"
+                  ></d-image>
+                  <d-image
+                    class="absolute highlight block"
+                    src="https://media.drx.gg/image/worlds/semifinals/highlight-3"
+                    width="300"
+                    height="206"
+                    alt="Highlight"
+                  ></d-image>
+                  <d-image
+                    class="absolute highlight block"
+                    src="https://media.drx.gg/image/worlds/semifinals/highlight-3"
+                    width="300"
+                    height="206"
+                    alt="Highlight"
+                  ></d-image>
                   <div class="absolute interview">
                     <h4 class="ft-ba">DRX ZEKA</h4>
                     <p class="ft-ns">
@@ -573,8 +846,13 @@
                   <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=hIgnLTuBnbA&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=2" target="_blank">
                     하이라이트
                     <span class="flex ai-center jc-center">
-                    <img src="./image/arrow.png" alt="">
-                  </span>
+                      <d-image
+                        class="block"
+                        src="./image/arrow"
+                        width="14"
+                        alt="Arrow"
+                      ></d-image>
+                    </span>
                   </a>
                 </div>
               </div>
@@ -582,9 +860,27 @@
           </div>
           <div class="flex location" id="finals">
             <div class="main relative fill width height view a-hidden">
-              <img class="absolute" src="https://media.drx.gg/image/worlds/finals/main-1.png" width="1053" height="364" alt="">
-              <img class="absolute" src="https://media.drx.gg/image/worlds/finals/main-2.png" width="631" height="389" alt="">
-              <img class="absolute" src="https://media.drx.gg/image/worlds/finals/main-3.png" width="631" height="389" alt="">
+              <d-image
+                class="absolute block thumb"
+                src="https://media.drx.gg/image/worlds/finals/main-1"
+                width="1053"
+                height="364"
+                alt="Finals"
+              ></d-image>
+              <d-image
+                class="absolute block thumb"
+                src="https://media.drx.gg/image/worlds/finals/main-2"
+                width="631"
+                height="389"
+                alt="Finals"
+              ></d-image>
+              <d-image
+                class="absolute block thumb"
+                src="https://media.drx.gg/image/worlds/finals/main-3"
+                width="631"
+                height="389"
+                alt="Finals"
+              ></d-image>
               <div class="typo absolute flex ai-center jc-center">
                 <h1 class="ft-ba">FINALS</h1>
                 <h1 class="ft-ba">IN SAN FRANSICO</h1>
@@ -598,23 +894,19 @@
               </div>
             </div>
             <div class="fill view height">
-              <img src="https://media.drx.gg/image/worlds/finals/content-1.png" width="859" height="100%" alt="">
+              <d-image
+                class="fill height"
+                src="https://media.drx.gg/image/worlds/finals/content-1"
+                height="100%"
+                alt="Content"
+              ></d-image>
             </div>
             <div class="relative match big">
               <div class="video relative">
                 <div class="bg flex ai-center jc-center a-hidden fill width height">
-                  <x-video
+                  <d-video
                     src="https://media.drx.gg/video/finals"
-                  ></x-video>
-                  <!-- <video
-                    muted
-                    loop
-                    class="block fill width"
-                    data-src="https://media.drx.gg/video/finals"
-                  >
-                    <source src="#" type="video/webm" />
-                    <source src="#" type="video/mp4" />
-                  </video> -->
+                  ></d-video>
                   <div class="absolute content fill width height">
                     <h1 class="absolute ft-ba">BEST</h1>
                     <h1 class="absolute ft-ba">UNDERDOG</h1>
@@ -634,8 +926,13 @@
                     <a class="absolute ft-ns flex ai-center jc-center" href="https://www.youtube.com/watch?v=hIgnLTuBnbA&list=PLIWtfvmBcNocUmABPEbPtHi2bdH7k5IjZ&index=2" target="_blank">
                       하이라이트
                       <span class="flex ai-center jc-center">
-                    <img src="./image/arrow.png" alt="">
-                  </span>
+                        <d-image
+                          class="block"
+                          src="./image/arrow"
+                          width="14"
+                          alt="Arrow"
+                        ></d-image>
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -662,62 +959,121 @@
           <p class="ft-ba">Our challenge continues</p>
           <p class="ft-ns">우리의 도전은 계속됩니다.</p>
         </div>
-        <div class="typo absolute item4 flex ai-center jc-center logo-wrap">
+        <div class="typo absolute item4 flex ai-center jc-center logo-wrap" id="logo">
           <p class="ft-ba">“Enjoy Challenge“</p>
-          <div class="logo">
-            <svg width="272" height="272" viewBox="0 0 272 272">
-              <path d="M271.881 62.6681V82.4293L246.103 108.21L231.507 122.806L182.106 172.204L172.227 182.087L122.826 231.484L108.226 246.08L82.4487 271.861H62.6875L98.3474 236.202L112.947 221.606L162.345 172.204L172.227 162.325L221.625 112.924L236.221 98.3245L271.881 62.6681Z" />
-              <path d="M271.886 0.0949707V9.97385L209.878 71.9821L195.282 86.578L145.884 135.979L136.002 145.858L86.6038 195.26L72.0078 209.859L9.99957 271.864H0.117188V261.981L62.1219 199.973L76.7214 185.377L126.123 135.979L136.002 126.097L185.403 76.6992L199.999 62.1032L262 0.0949707H271.886Z" />
-              <path d="M271.88 26.4435V46.2012L213.387 104.69L163.993 154.095L154.107 163.97L104.709 213.375L90.1131 227.971L46.2167 271.864H26.459L80.2342 218.092L94.8302 203.496L144.228 154.095L154.114 144.216L203.512 94.8112L218.108 80.2152L271.88 26.4435Z" />
-              <path d="M245.538 0.0949707L191.766 53.8667L177.17 68.4662L127.772 117.868L117.89 127.746L68.4919 177.148L53.8924 191.744L0.117188 245.515V225.758L44.0136 181.861L58.606 167.265L108.011 117.868L117.89 107.985L167.291 58.5873L181.887 43.9879L225.776 0.0949707H245.538Z" />
-              <path d="M209.311 0.0949707L173.654 35.7549L159.055 50.3508L109.657 99.7522L99.7744 109.631L50.3765 159.036L35.7806 173.628L0.117188 209.288V189.534L25.9017 163.75L40.4942 149.15L89.8955 99.7522L99.7744 89.8698L149.176 40.4719L163.775 25.876L189.549 0.0949707H209.311Z" />
-              <path d="M103.789 0H0V104.353L167.647 272H272V168.211L103.789 0Z" />
-            </svg>
-          </div>
+          <d-logo></d-logo>
           <ul class="page-map flex ai-center jc-center">
             <li>
               <a href="#" class="ft-ba flex ai-center">
                 HOME
-                <img src="./image/arrow.png" alt="">
+                <d-image
+                  src="./image/arrow"
+                  width="14"
+                  alt="Arrow"
+                ></d-image>
               </a>
             </li>
             <li>
               <a href="#" class="ft-ba flex ai-center">
-                <img src="./image/arrow.png" alt="">
+                <d-image
+                  src="./image/arrow"
+                  width="14"
+                  alt="Arrow"
+                ></d-image>
                 SHOP
               </a>
             </li>
           </ul>
           <ul class="flex ai-center partner">
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_SHINHANBANK.png" width="149" height="67" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_SHINHANBANK"
+                width="149"
+                height="67"
+                alt="SHINHANBANK"
+              ></d-image>
             </li>
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_DDANGYO.png" width="95" height="43" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_DDANGYO"
+                width="95"
+                height="43"
+                alt="DDANGYO"
+              ></d-image>
             </li>
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_REDBULL.png" width="95" height="43" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_REDBULL"
+                width="95"
+                height="43"
+                alt="REDBULL"
+              ></d-image>
             </li>
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_PORSCHE.png" width="95" height="43" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_PORSCHE"
+                width="95"
+                height="43"
+                alt="PORSCHE"
+              ></d-image>
             </li>
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_YES24.png" width="95" height="43" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_YES24"
+                width="95"
+                height="43"
+                alt="YES24"
+              ></d-image>
             </li>
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_HUONS.png" width="95" height="43" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_HUONS"
+                width="95"
+                height="43"
+                alt="HUONS"
+              ></d-image>
             </li>
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_LOGITECH.png" width="95" height="43" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_LOGITECH"
+                width="95"
+                height="43"
+                alt="LOGITECH"
+              ></d-image>
             </li>
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_HYPERX.png" width="95" height="43" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_HYPERX"
+                width="95"
+                height="43"
+                alt="HYPERX"
+              ></d-image>
             </li>
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_SOLDOC.png" width="95" height="43" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_SOLDOC"
+                width="95"
+                height="43"
+                alt="SOLDOC"
+              ></d-image>
             </li>
             <li>
-              <img class="block" src="https://media.drx.gg/image/worlds/partners/W_XENICS.png" width="95" height="43" alt="">
+              <d-image
+                class="block"
+                src="https://media.drx.gg/image/worlds/partners/W_XENICS"
+                width="95"
+                height="43"
+                alt="XENICS"
+              ></d-image>
             </li>
 <!--            <li>-->
 <!--              <img src="https://media.drx.gg/image/partners/wordmark/AFREECA-W.png" alt="">-->
@@ -732,11 +1088,6 @@
         </div>
       </div>
     </div>
-<!--    <div id="footer">-->
-<!--      <h1>-->
-<!--        PAVE THE WAY-->
-<!--      </h1>-->
-<!--    </div>-->
   </div>
   <div class="error fill width height view flex">
     <div class="content">
@@ -751,12 +1102,20 @@
         <li>
           <a href="https://main.drx.gg" class="ft-ba flex ai-center">
             HOME
-            <img class="block" src="./image/arrow.png" width="60" height="50" alt="">
+            <d-image
+              src="./image/arrow"
+              width="60"
+              alt="Arrow"
+            ></d-image>
           </a>
         </li>
         <li>
           <a href="#" class="ft-ba flex ai-center">
-            <img class="block" src="./image/arrow.png" width="60" height="50" alt="">
+            <d-image
+              src="./image/arrow"
+              width="60"
+              alt="Arrow"
+            ></d-image>
             SHOP
           </a>
         </li>

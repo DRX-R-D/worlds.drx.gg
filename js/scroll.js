@@ -5,7 +5,7 @@ const SIZE_VALUE = {
   YEAR_RATE: 3,
   YEAR_SCALE_RATE: 2,
   STORY_RATE: 2,
-  CONTINUE_RATE: 6,
+  CONTINUE_RATE: 5,
 }
 
 let isScrolling
@@ -81,14 +81,6 @@ class Scroll {
     const $videoList = $('.video video')
 
     $videoList.forEach((dom) => {
-      const src = dom.dataset.src
-
-      // Array.from(dom.children).forEach((child) => {
-      //   const type = child.type
-
-      //   child.setAttribute('src', `${src}.${type.replace('video/', '')}`)
-      // })
-
       dom.load()
 
       dom.addEventListener('canplay', () => {

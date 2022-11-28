@@ -1,0 +1,32 @@
+#logo .logo-wrap {
+	width: 272px;
+}
+#logo .logo-wrap .item {
+	transform: rotate3d(1, 1, 0, 0);
+	transition: transform .3s;
+	perspective: 200px;
+	transform-style: preserve-3d;
+}
+#logo .logo-wrap .item .front {
+	left: 0;
+	top: 0;
+	backface-visibility: hidden;
+	background-color: var(--background-color);
+}
+#logo .logo-wrap .item .front svg path:not(:last-of-type) {
+	fill: #2F5FF7;
+}
+#logo .logo-wrap .item .front svg path:last-of-type {
+	fill: #5A8DFF;
+}
+#logo .logo-wrap .item .back {
+	left: 0;
+	top: 0;
+	transform: rotate3d(1, 1, 0, -180deg);
+}
+#logo .logo-wrap .item .back svg path {
+	fill: #1003A3;
+}
+#logo.change .logo-wrap .item {
+	transform: rotate3d(1, 1, 0, -180deg);
+}

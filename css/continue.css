@@ -38,44 +38,6 @@
 	font-weight: 100;
 	margin-bottom: 3.43rem;
 }
-#continue .content .typo.item4 .logo {
-	display: block;
-	width: 17rem;
-}
-#continue .content .typo.item4 .logo svg {
-	display: block;
-	width: 100%;
-}
-#continue .content .typo.item4 .logo svg path {
-	transition: fill 0.3s;
-}
-#continue .content .typo.item4 .logo svg path:not(:last-of-type) {
-	fill: #2F5FF7;
-}
-#continue .content .typo.item4 .logo svg path:last-of-type {
-	fill: #5A8DFF;
-}
-#continue .content .typo.item4.change .logo svg path:not(:last-of-type) {
-	fill: #1003A3;
-}
-#continue .content .typo.item4.change .logo svg path:nth-of-type(1) {
-	transition-delay: 1.5s;
-}
-#continue .content .typo.item4.change .logo svg path:nth-of-type(2) {
-	transition-delay: 0.9s;
-}
-#continue .content .typo.item4.change .logo svg path:nth-of-type(3) {
-	transition-delay: 1.2s;
-}
-#continue .content .typo.item4.change .logo svg path:nth-of-type(4) {
-	transition-delay: 0.6s;
-}
-#continue .content .typo.item4.change .logo svg path:nth-of-type(5) {
-	transition-delay: 0.3s;
-}
-#continue .content .typo.item4.change .logo svg path:last-of-type {
-	fill: #1003A3;
-}
 #continue .content .typo.item4 .page-map {
 	margin-top: 4.68rem;
 	flex-direction: column;
