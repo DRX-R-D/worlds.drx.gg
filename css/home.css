@@ -58,6 +58,8 @@
 	top: 50%;
 	opacity: 0;
 	transform: matrix(1, 0, 0, 1, -291, 189) translateZ(0);
+	transition-property: opacity;
+	transition-duration: var(--transition-time);
 }
 #home .page-map {
 	left: 50%;
@@ -75,19 +77,6 @@
 }
 #home .page-map li a img {
 	width: 14px;
-}
-
-#home #champion-text.fix {
-	font-size: 117px;
-}
-#home #champion-text.font-size {
-	transition-property: font-size;
-}
-#home #champion-text.opacity {
-	transition-property: opacity;
-}
-#home #champion-text.transition {
-	transition-duration: var(--transition-time);
 }
 #home .content h1:nth-of-type(1).transition {
 	transition-duration: var(--transition-time);

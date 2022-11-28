@@ -55,6 +55,9 @@
 #start .slogan .sticky .content h1 {
 	opacity: 0;
 	color: #fff;
+	transform: translateY(30px);
+	transition-property: opacity, transform;
+	transition-duration: var(--transition-time);
 }
 #start .slogan .sticky .content h1:nth-of-type(1) {
 	top: 1.18rem;
@@ -87,12 +90,9 @@
 	font-size: 7.31rem;
 	color: #1003A3;
 }
-#start .slogan .sticky .content h1 {
-	opacity: 0;
-	transition: opacity var(--transition-time);
-}
 #start .slogan .sticky.on .content h1 {
 	opacity: 1;
+	transform: translateY(0);
 }
 
 #start > .history .bg {
@@ -156,13 +156,21 @@
 	transition-duration: var(--transition-time);
 }
 #start > .history .content.item2 .typo h3 {
-	color: #FFFFFF66;
 	font-size: 38px;
 	line-height: 52px;
 	font-weight: 700;
 }
-#start > .history .content.item2 .typo h3:last-of-type {
-	color: #fff;
+#start > .history .content.item2 .typo h3:nth-of-type(1) {
+	color: #FFFFFF33;
+}
+#start > .history .content.item2 .typo h3:nth-of-type(2) {
+	color: #FFFFFF4D;
+}
+#start > .history .content.item2 .typo h3:nth-of-type(3) {
+	color: #FFFFFF66;
+}
+#start > .history .content.item2 .typo h3:nth-of-type(4) {
+	color: #FFFFFFCC;
 }
 #start > .history .content.item3 {
 	width: 787px;

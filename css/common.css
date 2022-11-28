@@ -4,6 +4,9 @@
 .block {
 	display: block;
 }
+.none {
+	display: none;
+}
 
 .ft-ba {
 	font-family: "Baikal", sans-serif;

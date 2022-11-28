@@ -23,7 +23,7 @@ class Image extends WC {
         <source
           media="all"
           class="block"
-          srcset="${props.src}.webp ${props.width}w"
+          srcset="${props.src}.webp"
           type="image/webp"
         />
         <img

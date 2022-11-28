@@ -413,3 +413,34 @@
 	text-align: right;
 	transform: matrix(1, 0, 0, 1, 427, 200);
 }
+#last {
+	left: 0;
+	top: 0;
+}
+#last .comment {
+	left: 0;
+	top: 0;
+	background-color: #11111185;
+	flex-direction: column;
+	opacity: 0;
+	transition: opacity .3s;
+}
+#last .comment h1 {
+	font-size: 20px;
+	line-height: 26px;
+	color: #ffffff;
+	margin-bottom: 57px;
+	font-weight: 300;
+}
+#last .comment p {
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 26px;
+	color: #ffffff;
+}
+#last .comment p:not(:last-of-type) {
+	margin-bottom: 18px;
+}
+#last.on .comment {
+	opacity: 1;
+}

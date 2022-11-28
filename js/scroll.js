@@ -4,7 +4,7 @@ const SIZE_VALUE = {
   HOME_RATE: 3,
   YEAR_RATE: 3,
   YEAR_SCALE_RATE: 2,
-  STORY_RATE: 2,
+  STORY_RATE: 4,
   CONTINUE_RATE: 5,
 }
 
@@ -40,6 +40,8 @@ function animation(prev, cur, fn) {
     })
   }
 }
+
+const $startSlogan = $('#start .slogan .sticky')
 
 class Scroll {
   constructor() {
@@ -94,7 +96,7 @@ class Scroll {
           }
 
           setTimeout(() => {
-            $story.style.height = `${$list.offsetWidth + (window.innerHeight * 3)}px`
+            $story.style.height = `${$list.offsetWidth + (window.innerHeight * SIZE_VALUE.STORY_RATE)}px`
 
             setTimeout(() => {
               window.scrollTo({ top: 0 })
@@ -132,11 +134,8 @@ class Scroll {
 
       $champion.classList.remove('on')
       $champion.classList.remove('delay')
-      $champion.classList.remove('fix')
 
       if (this.isScrollingDown) {
-        $champion.classList.remove('opacity')
-
         $year.classList.remove('transition')
         $year.classList.remove('on')
 
@@ -150,8 +149,6 @@ class Scroll {
       $content.classList.add('delay')
       $content.classList.add('on')
 
-      $champion.classList.add('opacity')
-      $champion.classList.add('transition')
       $champion.classList.add('delay')
       $champion.classList.add('on')
 
@@ -163,28 +160,19 @@ class Scroll {
   championAnimation() {
     const $text = $('#champion-text')
     const $start = $('#start')
-    const $slogan = $('#start .slogan .sticky')
+    const $slogan = $startSlogan
     const firstStep = window.innerHeight * (SIZE_VALUE.HOME_RATE - 1) + 173
 
     if (firstStep <= this.scTop && this.scTop < $start.offsetTop) {
-      $text.classList.remove('fix')
       $text.classList.remove('delay')
-      $text.classList.remove('transition')
-      $text.classList.remove('font-size')
-      $text.classList.remove('opacity')
 
       $text.style.transform = `matrix(1, 0, 0, 1, -291, ${(this.scTop - firstStep) + 189})`
     } else if ($start.offsetTop <= this.scTop && this.scTop < $slogan.offsetTop) {
-      $text.classList.remove('fix')
-      $text.classList.add('font-size')
-
       const diff = (this.scTop - $start.offsetTop) * (180 / window.innerHeight) > 180 ? 180 : (this.scTop - $start.offsetTop) * (180 / window.innerHeight)
 
       $text.style.transform = `matrix(1, 0, 0, 1, -${291 - diff}, ${(this.scTop - firstStep) + 189}) translateZ(0)`
+      $text.style.fontSize = `${160 - (43 / 180 * diff).toFixed(0)}px`
     } else if (this.scTop >= $slogan.offsetTop) {
-      $text.classList.add('transition')
-      $text.classList.add('fix')
-
       $text.style.transform = `matrix(1, 0, 0, 1, -111, ${($slogan.offsetTop - firstStep) + 189}) translateZ(0)`
     } else {
       $text.style.transform = ``
@@ -193,14 +181,45 @@ class Scroll {
   storyScroll() {
     const $story = $('#story')
     const $list = $('#story .list')
+    const $last = $('#last')
+    const $picture = $('#last picture')
+
+    const scrollFixPoint = $list.offsetWidth + $story.offsetTop - window.innerWidth
 
     if (
       this.scTop >= $story.offsetTop &&
-      this.scTop < ($list.offsetWidth + $story.offsetTop - window.innerWidth)
+      this.scTop < scrollFixPoint
     ) {
-      $list.style.transform = `matrix(1, 0, 0, 1, ${$story.offsetTop - this.scTop}, 0) translateZ(0)`
-    } else if (this.scTop >= ($list.offsetWidth + $story.offsetTop - window.innerWidth)) {
+      $list.style.transform = `matrix(1, 0, 0, 1, ${$story.offsetTop - this. scTop}, 0) translateZ(0)`
+
+      $last.classList.remove('block')
+      $last.classList.add('none')
+    } else if (this.scTop >= scrollFixPoint) {
       $list.style.transform = `matrix(1, 0, 0, 1, ${window.innerWidth - $list.offsetWidth}, 0) translateZ(0)`
+
+      const interviewImagePoint = scrollFixPoint + (window.innerHeight / 2)
+
+      if (this.scTop >= interviewImagePoint) {
+        $last.classList.remove('none')
+        $last.classList.add('block')
+
+        const lastInterviewScValue = this.scTop - interviewImagePoint
+        const scaleRate = lastInterviewScValue / (window.innerHeight * 2)
+
+        if (scaleRate < 1) {
+          $last.classList.remove('on')
+
+          $last.style.transform = `scale(${scaleRate})`
+          $picture.style.transform = `scale(${(window.innerHeight * 2) / lastInterviewScValue})`
+        } else {
+          $last.style.transform = `scale(1)`
+          $picture.style.transform = `scale(1)`
+
+          if (lastInterviewScValue >= (window.innerWidth * 1.5)) {
+            $last.classList.add('on')
+          }
+        }
+      }
     } else {
       $list.style.transform = `matrix(1, 0, 0, 1, 0, 0) translateZ(0)`
     }
@@ -268,11 +287,18 @@ window.addEventListener('resize' , function () {
   }
 })
 
-const startIO = new IntersectionObserver(function (entries) {
+const startInIO = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {
       entry.target.classList.add('on')
-    } else {
+    }
+  })
+}, {
+  threshold: 0.8,
+})
+const startOutIO = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (!entry.isIntersecting) {
       entry.target.classList.remove('on')
     }
   })
@@ -298,7 +324,8 @@ const seasonIO = new IntersectionObserver(function (entries) {
   threshold: 0.8,
 })
 
-startIO.observe($('#start .slogan .sticky'))
+startInIO.observe($startSlogan)
+startOutIO.observe($startSlogan)
 
 $('.video').forEach((dom) => {
   videoImageIO.observe(dom)
