@@ -6,6 +6,7 @@
 	transition: transform .3s;
 	perspective: 200px;
 	transform-style: preserve-3d;
+	-moz-backface-visibility: hidden;
 }
 #logo .logo-wrap .item .front {
 	left: 0;
