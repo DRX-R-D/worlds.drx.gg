@@ -33,4 +33,4 @@ class Video extends WC {
   }
 }
 
-define('x-video', Video)
+define('d-video', Video)
