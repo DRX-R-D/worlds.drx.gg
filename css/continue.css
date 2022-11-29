@@ -39,34 +39,34 @@
 	margin-bottom: 3.43rem;
 }
 #continue .content .typo.item4 .page-map {
-	margin-top: 4.68rem;
 	flex-direction: column;
-	gap: 0.5rem;
+	gap: 10px;
 	opacity: 0;
 	transition: opacity 0.3s;
 	transition-delay: 1.8s;
+	left: 50%;
+	top: 50%;
+	transform: matrix(1, 0, 0, 1, 209, -67);
+	align-items: flex-start;
 }
 #continue .content .typo.item4 .page-map li a {
 	color: #fff;
 	opacity: 0.5;
-	font-size: 1.12rem;
-	line-height: 1.43rem;
+	font-size: 18px;
+	line-height: 23px;
 	font-weight: 300;
-	gap: 0.56rem;
+	gap: 9px;
 }
 #continue .content .typo.item4 .page-map li a img {
 	display: block;
 	width: 0.87rem;
-}
-#continue .content .typo.item4 .page-map li:last-of-type a img {
-	transform: rotate(180deg);
 }
 #continue .content .typo.item4 .partner {
 	gap: 68px;
 	opacity: 0;
 	transition: opacity .3s;
 	transition-delay: 1.8s;
-	margin-top: 6.62rem;
+	margin-top: 259px;
 }
 #continue .content .typo.item4 .partner li img {
 	opacity: 0.5;

@@ -9,3 +9,71 @@
 	line-height: 241px;
 	font-weight: 900;
 }
+#footer > .flex {
+	gap: 298px;
+}
+#footer > .flex .left .contact {
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 17px;
+	margin-bottom: 35px;
+}
+#footer > .flex .left .contact li p {
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: 400;
+	color: #fff;
+}
+#footer > .flex .left .copyright {
+	font-size: 16px;
+	line-height: 26px;
+	color: #FFFFFF80;
+	font-weight: 400;
+}
+#footer > .flex .right {
+	flex-direction: column;
+}
+#footer > .flex .right .site-map {
+	gap: 80px;
+	margin-bottom: auto;
+}
+#footer > .flex .right .site-map li a {
+	color: #FFFFFF80;
+	font-size: 16px;
+	line-height: 25px;
+	font-weight: 400;
+}
+#footer > .flex .right .sns-wrap > div {
+	flex: 1;
+	flex-direction: column;
+	gap: 33px;
+}
+#footer > .flex .right .sns-wrap .default {
+	padding-right: 72px;
+}
+#footer > .flex .right .sns-wrap .default:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	height: 100%;
+	width: 1px;
+	background-color: #FFFFFF26;
+}
+#footer > .flex .right .sns-wrap .vs {
+	padding-left: 72px;
+}
+#footer > .flex .right .sns-wrap .sns {
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top: auto;
+}
+#footer > .flex .right .sns-wrap .sns a {
+	flex-direction: column;
+	gap: 5px;
+	color: #FFFFFF80;
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: 400;
+}

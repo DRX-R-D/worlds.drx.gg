@@ -64,8 +64,8 @@
 #home .page-map {
 	left: 50%;
 	top: 50%;
-	transform: matrix(1, 0, 0, 1, 554, -187) translateZ(0);
-	gap: 33px;
+	transform: matrix(1, 0, 0, 1, 395, -187) translateZ(0);
+	gap: 34px;
 	color: #fff;
 	opacity: 0;
 }
