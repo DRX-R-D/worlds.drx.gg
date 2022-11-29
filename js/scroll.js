@@ -5,7 +5,7 @@ const SIZE_VALUE = {
   YEAR_RATE: 3,
   YEAR_SCALE_RATE: 2,
   STORY_RATE: 4,
-  CONTINUE_RATE: 5,
+  CONTINUE_RATE: 7,
 }
 
 let isScrolling
@@ -237,7 +237,7 @@ class Scroll {
         })
         $continue.querySelector(`.typo.item${targetNumber}`).classList.add('on')
         $continue.querySelector(`.typo.logo-wrap`).classList.remove('change')
-      } else if (targetNumber >= SIZE_VALUE.CONTINUE_RATE){
+      } else if (targetNumber >= 5){
         $continue.querySelector(`.typo.logo-wrap`).classList.add('change')
       }
     } else {
