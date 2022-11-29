@@ -81,6 +81,21 @@
 #home .content h1:nth-of-type(1).transition {
 	transition-duration: var(--transition-time);
 }
+#home .scroll {
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 47px;
+	flex-direction: column;
+	gap: 12px;
+	line-height: 23px;
+	font-size: 18px;
+	font-weight: 300;
+	opacity: 0.5;
+	color: #fff;
+}
+#home .scroll .arrow {
+	transform: rotate(90deg);
+}
 #home .content.on h1:nth-of-type(1) {
 	transform: matrix(1, 0, 0, 1, -760 ,-461) translateZ(0);
 }
