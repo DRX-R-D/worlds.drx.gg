@@ -24,7 +24,7 @@ class Video extends WC {
       <video
         muted
         loop
-        class="block fill width"
+        class="block view height width min"
       >
         <source src="${props.src}.webm" type="video/webm" />
         <source src="${props.src}.mp4" type="video/mp4" />

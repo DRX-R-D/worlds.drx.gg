@@ -192,7 +192,7 @@ class Scroll {
     ) {
       $list.style.transform = `matrix(1, 0, 0, 1, ${$story.offsetTop - this. scTop}, 0) translateZ(0)`
 
-      $last.classList.remove('block')
+      $last.classList.remove('flex')
       $last.classList.add('none')
     } else if (this.scTop >= scrollFixPoint) {
       $list.style.transform = `matrix(1, 0, 0, 1, ${window.innerWidth - $list.offsetWidth}, 0) translateZ(0)`
@@ -201,7 +201,7 @@ class Scroll {
 
       if (this.scTop >= interviewImagePoint) {
         $last.classList.remove('none')
-        $last.classList.add('block')
+        $last.classList.add('flex')
 
         const lastInterviewScValue = this.scTop - interviewImagePoint
         const scaleRate = lastInterviewScValue / (window.innerHeight * 2)

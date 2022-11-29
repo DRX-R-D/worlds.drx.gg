@@ -68,3 +68,9 @@
 .fill.height.view {
 	height: 100vh;
 }
+.view.height.min {
+	min-height: 100vh;
+}
+.view.height.min {
+	min-width: 100vw;
+}

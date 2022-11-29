@@ -458,3 +458,16 @@
 #last.on .comment p {
 	opacity: 1;
 }
+
+@media screen and (max-height: 981px) {
+	#last picture,
+	#last picture img {
+		width: 100vw !important;
+	}
+}
+@media screen and (min-height: 980px) {
+	#last picture,
+	#last picture img {
+		height: 100vw !important;
+	}
+}
