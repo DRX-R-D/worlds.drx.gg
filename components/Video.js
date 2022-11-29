@@ -11,7 +11,7 @@ class Video extends WC {
         }
       })
     },  {
-      threshold: 0.8,
+      threshold: 0.7,
     })
 
     this.querySelector('video').oncanplay = async function () {
