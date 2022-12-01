@@ -56,7 +56,7 @@
 	top: 0;
 }
 .video video {
-    filter: brightness(0.7);
+    filter: brightness(0.4);
 }
 
 .fill.width {
