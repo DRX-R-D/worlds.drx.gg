@@ -1,48 +1,48 @@
 @font-face {
 	font-family: "Baikal";
-	src: url("https://fonts.drx.gg/Baikal/Baikal-Thin.woff2") format("woff2");
+	src: url("https://fonts.drx.gg/Baikal/woff2/Baikal-Thin.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 100;
 }
 @font-face {
 	font-family: "Baikal";
-	src: url("https://fonts.drx.gg/Baikal/Baikal-ExtraLight.woff2") format("woff2");
+	src: url("https://fonts.drx.gg/Baikal/woff2/Baikal-ExtraLight.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 200;
 }
 @font-face {
 	font-family: "Baikal";
-	src: url("https://fonts.drx.gg/Baikal/Baikal-Regular.woff2") format("woff2");
+	src: url("https://fonts.drx.gg/Baikal/woff2/Baikal-Regular.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 400;
 }
 @font-face {
 	font-family: "Baikal";
-	src: url("https://fonts.drx.gg/Baikal/Baikal-Medium.woff2") format("woff2");
+	src: url("https://fonts.drx.gg/Baikal/woff2/Baikal-Medium.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 500;
 }
 @font-face {
 	font-family: "Baikal";
-	src: url("https://fonts.drx.gg/Baikal/Baikal-SemiBold.woff2") format("woff2");
+	src: url("https://fonts.drx.gg/Baikal/woff2/Baikal-SemiBold.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 600;
 }
 @font-face {
 	font-family: "Baikal-Expanded";
-	src: url("https://fonts.drx.gg/Baikal/Baikal-ExpandedSemiBold.woff2") format("woff2");
+	src: url("https://fonts.drx.gg/Baikal/woff2/Baikal-ExpandedSemiBold.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 600;
 }
 @font-face {
 	font-family: "Baikal";
-	src: url("https://fonts.drx.gg/Baikal/Baikal-CondensedExtraBold.woff2") format("woff2");
+	src: url("https://fonts.drx.gg/Baikal/woff2/Baikal-CondensedExtraBold.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 800;
 }
 @font-face {
 	font-family: "Baikal";
-	src: url("https://fonts.drx.gg/Baikal/Baikal-Black.woff2") format("woff2");
+	src: url("https://fonts.drx.gg/Baikal/woff2/Baikal-Black.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 900;
 }
